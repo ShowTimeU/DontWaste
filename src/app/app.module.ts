@@ -25,6 +25,8 @@ import {DescriptionComponent} from './description/description.component';
 import {NavigationComponent} from './navigation/navigation.component';
 import {MatListModule} from '@angular/material/list';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 const routes = [{path: 'registrationPage', component: RegistrationPageComponent},
                 {path: '', component: WelcomePageComponent},
@@ -44,29 +46,31 @@ const parentModules: Routes = [
     DescriptionComponent,
     NavigationComponent
   ],
-    imports: [
-        BrowserModule,
-        BrowserAnimationsModule,
-        MatSliderModule,
-        MatToolbarModule,
-        MatMenuModule,
-        MatIconModule,
-        MatButtonModule,
-        MatCardModule,
-        MatFormFieldModule,
-        MatProgressSpinnerModule,
-        FormsModule,
-        ReactiveFormsModule,
-        MatInputModule,
-        MatSelectModule,
-        MatCheckboxModule,
-        RouterModule.forRoot(routes),
-        RouterModule.forChild(parentModules),
-        MatSidenavModule,
-        MatListModule,
-        MatDialogModule,
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    MatSliderModule,
+    MatToolbarModule,
+    MatMenuModule,
+    MatIconModule,
+    MatButtonModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatProgressSpinnerModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatSelectModule,
+    MatCheckboxModule,
+    RouterModule.forRoot(routes),
+    RouterModule.forChild(parentModules),
+    MatSidenavModule,
+    MatListModule,
+    MatDialogModule,
+    MatTableModule,
+    MatPaginatorModule,
 
-    ],
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
