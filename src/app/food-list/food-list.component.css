@@ -1,10 +1,19 @@
-img {
-  height: 300px;
-  width: 300px;
-  padding: 10px;
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1300px;
 }
 
-.wraperZhe {
-  margin: 2% auto;
+.card {
+  margin-top: 3.5%;
+  max-width: 500px;
+  max-height: 500px;
   text-align: center;
+  margin-right: 50px;
+}
+
+.header-image {
+  background-image: url('https://media-cdn.tripadvisor.com/media/photo-s/10/2d/f6/bd/japanika.jpg');
+  background-size: cover;
 }
