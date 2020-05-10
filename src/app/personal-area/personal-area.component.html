@@ -1,0 +1,15 @@
+<mat-card *ngIf="data">
+  <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+    <h2> Personal Data </h2>
+    <mat-form-field>
+      <input matInput value="{{ data.name }}" [disabled]='toggleButton'>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput value="{{ data.email}}" [disabled]='toggleButton'>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput value="{{ data.phone }}" [disabled]='toggleButton'>
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit" class="button"> Change </button>
+  </form>
+</mat-card>
