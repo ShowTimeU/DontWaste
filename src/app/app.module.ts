@@ -27,11 +27,13 @@ import {MatListModule} from '@angular/material/list';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {PersonalAreaComponent} from './personal-area/personal-area.component';
 
 const routes = [{path: 'registrationPage', component: RegistrationPageComponent},
                 {path: '', component: WelcomePageComponent},
                 {path: 'loginPage', component: LoginPageComponent},
-                {path: 'foodlistPage', component: FoodListComponent}];
+                {path: 'foodlistPage', component: FoodListComponent},
+                {path: 'personalAreaPage', component: PersonalAreaComponent}];
 
 const parentModules: Routes = [
           {path: 'foodlistPage/descriptionPage', component: DescriptionComponent}];
@@ -44,7 +46,8 @@ const parentModules: Routes = [
     RegistrationPageComponent,
     FoodListComponent,
     DescriptionComponent,
-    NavigationComponent
+    NavigationComponent,
+    PersonalAreaComponent
   ],
   imports: [
     BrowserModule,
