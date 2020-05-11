@@ -1,79 +1,28 @@
 <router-outlet></router-outlet>
+
 <div class="container">
-<mat-card class="card">
-  <mat-card-header>
-    <div mat-card-avatar class="header-image"></div>
-    <mat-card-title>Tori Sushi</mat-card-title>
-    <mat-card-subtitle>with avocado</mat-card-subtitle>
-  </mat-card-header>
-  <img mat-card-image src="https://www.diabetes.org/sites/default/files/styles/crop_large/public/2019-06/Healthy%20Food%20Made%20Easy%20-min.jpg">
-</mat-card>
-  <mat-card class="card">
+  <mat-card class="example-card">
     <mat-card-header>
-      <div mat-card-avatar class="header-image"></div>
-      <mat-card-title>Tori Sushi</mat-card-title>
-      <mat-card-subtitle>with avocado</mat-card-subtitle>
+      <mat-form-field class="example-full-width">
+        <input matInput (keyup)="applyFilter($event)" placeholder="Filter">
+      </mat-form-field>
     </mat-card-header>
-    <img mat-card-image src="https://www.diabetes.org/sites/default/files/styles/crop_large/public/2019-06/Healthy%20Food%20Made%20Easy%20-min.jpg">
+
+    <mat-card-content class="grid">
+
+
+      <mat-card class="example-card-two" *ngFor="let user of this.dataSource.filteredData">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>Shiba Inu</mat-card-title>
+          <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            {{user}}
+        </mat-card-content>
+      </mat-card>
+    </mat-card-content>
+
   </mat-card>
-  <mat-card class="card">
-    <mat-card-header>
-      <div mat-card-avatar class="header-image"></div>
-      <mat-card-title>Tori Sushi</mat-card-title>
-      <mat-card-subtitle>with avocado</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image src="https://www.diabetes.org/sites/default/files/styles/crop_large/public/2019-06/Healthy%20Food%20Made%20Easy%20-min.jpg">
-  </mat-card>
-</div>
-<div class="container">
-  <mat-card class="card">
-    <mat-card-header>
-      <div mat-card-avatar class="header-image"></div>
-      <mat-card-title>Tori Sushi</mat-card-title>
-      <mat-card-subtitle>with avocado</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image src="https://www.diabetes.org/sites/default/files/styles/crop_large/public/2019-06/Healthy%20Food%20Made%20Easy%20-min.jpg">
-  </mat-card>
-  <mat-card class="card">
-    <mat-card-header>
-      <div mat-card-avatar class="header-image"></div>
-      <mat-card-title>Tori Sushi</mat-card-title>
-      <mat-card-subtitle>with avocado</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image src="https://www.diabetes.org/sites/default/files/styles/crop_large/public/2019-06/Healthy%20Food%20Made%20Easy%20-min.jpg">
-  </mat-card>
-  <mat-card class="card">
-    <mat-card-header>
-      <div mat-card-avatar class="header-image"></div>
-      <mat-card-title>Tori Sushi</mat-card-title>
-      <mat-card-subtitle>with avocado</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image src="https://www.diabetes.org/sites/default/files/styles/crop_large/public/2019-06/Healthy%20Food%20Made%20Easy%20-min.jpg">
-  </mat-card>
-</div>
-<div class="container">
-  <mat-card class="card">
-    <mat-card-header>
-      <div mat-card-avatar class="header-image"></div>
-      <mat-card-title>Tori Sushi</mat-card-title>
-      <mat-card-subtitle>with avocado</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image src="https://www.diabetes.org/sites/default/files/styles/crop_large/public/2019-06/Healthy%20Food%20Made%20Easy%20-min.jpg">
-  </mat-card>
-  <mat-card class="card">
-    <mat-card-header>
-      <div mat-card-avatar class="header-image"></div>
-      <mat-card-title>Tori Sushi</mat-card-title>
-      <mat-card-subtitle>with avocado</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image src="https://www.diabetes.org/sites/default/files/styles/crop_large/public/2019-06/Healthy%20Food%20Made%20Easy%20-min.jpg">
-  </mat-card>
-  <mat-card class="card">
-    <mat-card-header>
-      <div mat-card-avatar class="header-image"></div>
-      <mat-card-title>Tori Sushi</mat-card-title>
-      <mat-card-subtitle>with avocado</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image src="https://www.diabetes.org/sites/default/files/styles/crop_large/public/2019-06/Healthy%20Food%20Made%20Easy%20-min.jpg">
-  </mat-card>
+
 </div>
