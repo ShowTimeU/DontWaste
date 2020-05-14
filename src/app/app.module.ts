@@ -28,6 +28,8 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {PersonalAreaComponent} from './personal-area/personal-area.component';
+import { ProductComponent } from './product/product.component';
+import {HttpClientModule} from '@angular/common/http';
 
 const routes = [{path: 'registrationPage', component: RegistrationPageComponent},
                 {path: '', component: WelcomePageComponent},
@@ -47,7 +49,8 @@ const parentModules: Routes = [
     FoodListComponent,
     DescriptionComponent,
     NavigationComponent,
-    PersonalAreaComponent
+    PersonalAreaComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,
@@ -72,6 +75,7 @@ const parentModules: Routes = [
     MatDialogModule,
     MatTableModule,
     MatPaginatorModule,
+    HttpClientModule
 
   ],
   providers: [],
