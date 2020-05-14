@@ -1,9 +1,11 @@
 <router-outlet></router-outlet>
+<app-product></app-product>
 <mat-card class="filterCard">
   <div class="filterContainer">
   <mat-form-field>
     <mat-label> Choose Area </mat-label>
     <mat-select [formControl]="area" multiple>
+
       <mat-select-trigger>
         {{area.value ? area.value[0] : ''}}
         <span *ngIf="area.value?.length > 1" class="example-additional-selection">
