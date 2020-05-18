@@ -1,8 +1,13 @@
 package com.dontwaste.model.customer.web.user.create;
 
-import java.time.LocalDateTime;
+import lombok.*;
 
-public class CreateUserResponse {
+import java.time.LocalDateTime;
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter @Setter
+@Builder
+public class UserCreateResponse {
 
     private Long id;
     private LocalDateTime createdOn;

@@ -1,11 +1,16 @@
 package com.dontwaste.model.customer.web.user.create;
 
 
+import lombok.*;
 import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.NotBlank;
 
-public class CreateUserRequest {
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter @Setter
+@Builder
+public class UserCreateRequest {
     @NotBlank
     @Length(min = 2, max = 20)
     private String name;
