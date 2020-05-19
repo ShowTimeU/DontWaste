@@ -22,12 +22,12 @@ public class ProductController {
         return productService.createProduct(productCreationRequest);
     }
 
-    @DeleteMapping(value = "deleteProduct/{id}")
+    @DeleteMapping(value = "/deleteProduct/{id}")
     public void deleteProduct(@PathVariable("id") Long id){
         productService.deleteProduct(id);
     }
 
-    @GetMapping(value = "getAllProducts")
+    @GetMapping(value = "/getAllProducts")
     public List<ProductEntity> getAllProducts(){
         return productService.getAllProducts();
     }
