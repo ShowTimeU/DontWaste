@@ -18,4 +18,8 @@ export class ProductHTTPService {
   createUser(body): Observable<User> {
     return this.httpClient.post<User>('/api/createUser', body);
   }
+
+  getAllProducts(): Observable<Product[]> {
+    return this.httpClient.get<Product[]>('/api/getAllProducts');
+  }
 }
