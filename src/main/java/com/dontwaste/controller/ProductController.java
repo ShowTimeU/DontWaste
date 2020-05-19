@@ -8,6 +8,8 @@ import com.dontwaste.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api")
 public class ProductController {
@@ -23,6 +25,11 @@ public class ProductController {
     @DeleteMapping(value = "deleteProduct/{id}")
     public void deleteProduct(@PathVariable("id") Long id){
         productService.deleteProduct(id);
+    }
+
+    @GetMapping(value = "getAllProducts")
+    public List<ProductEntity> getAllProducts(){
+        return productService.getAllProducts();
     }
 
 }

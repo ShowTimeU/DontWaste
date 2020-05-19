@@ -9,6 +9,8 @@ import com.dontwaste.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ProductServiceImp implements ProductService  {
     @Autowired
@@ -32,5 +34,10 @@ public class ProductServiceImp implements ProductService  {
     @Override
     public void deleteProduct(Long id) {
         productRepository.deleteById(id);
+    }
+
+    @Override
+    public List<ProductEntity> getAllProducts() {
+        return productRepository.findAll();
     }
 }
