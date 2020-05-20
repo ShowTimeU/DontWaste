@@ -1,6 +1,6 @@
 package com.dontwaste.converter.user.response;
 
-import com.dontwaste.model.customer.entity.UserEntity;
+import com.dontwaste.model.customer.entity.user.UserEntity;
 import com.dontwaste.model.customer.web.user.create.UserCreateResponse;
 import org.springframework.stereotype.Component;
 

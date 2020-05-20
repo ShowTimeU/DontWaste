@@ -17,6 +17,11 @@ public class ProductCreationResponse {
     private String image;
     private Double startingPrice;
     private Double price;
+    private boolean kosher;
+    private boolean vegeterian;
+    private boolean vegan;
+    private String area;
+    private String institution;
 
 
 }

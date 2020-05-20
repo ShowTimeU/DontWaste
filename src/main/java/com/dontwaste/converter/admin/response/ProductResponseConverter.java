@@ -1,7 +1,7 @@
 package com.dontwaste.converter.admin.response;
 
 import com.dontwaste.model.admin.response.ProductCreationResponse;
-import com.dontwaste.model.customer.entity.ProductEntity;
+import com.dontwaste.model.customer.entity.product.ProductEntity;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -17,6 +17,11 @@ public class ProductResponseConverter {
                 .image(productEntity.getImage())
                 .startingPrice(productEntity.getStartingPrice())
                 .price(productEntity.getPrice())
+                .area(productEntity.getArea())
+                .institution(productEntity.getInstitution())
+                .kosher(productEntity.isKosher())
+                .vegan(productEntity.isVegan())
+                .vegeterian(productEntity.isVegeterian())
                 .build();
     }
 }

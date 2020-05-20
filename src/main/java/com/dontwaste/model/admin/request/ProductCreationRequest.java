@@ -24,5 +24,16 @@ public class ProductCreationRequest {
     @Min(value = 1)
     @NotNull
     private Double price;
+    @NotBlank
+    @Length(max = 100)
+    private String area;
+    @NotBlank
+    @Length(max = 50)
+    private String institution;
+
+    private boolean kosher;
+    private boolean vegeterian;
+    private boolean vegan;
+
 
 }
