@@ -31,9 +31,10 @@ public class ProductCreationRequest {
     @Length(max = 50)
     private String institution;
 
-    private boolean kosher;
-    private boolean vegeterian;
-    private boolean vegan;
+//    private boolean kosher;
+//    private boolean vegeterian;
+//    private boolean vegan;
+
 
 
 }
