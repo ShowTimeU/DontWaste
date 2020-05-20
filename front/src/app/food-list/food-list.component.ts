@@ -1,10 +1,11 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {MatPaginator} from '@angular/material/paginator';
-import {MatSort} from '@angular/material/sort';
-import {MatTableDataSource} from '@angular/material/table';
-import {FormControl} from '@angular/forms';
+import {ChangeDetectorRef, Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {Product} from "../model/product";
 import {ProductHTTPService} from "../product-http.service";
+import {MatDialog} from "@angular/material/dialog";
+import {ProductComponent} from "../product/product.component";
+import {MatPaginator} from "@angular/material/paginator";
+import {Observable} from "rxjs";
+import {MatTableDataSource} from "@angular/material/table";
 
 
 @Component({
@@ -15,20 +16,21 @@ import {ProductHTTPService} from "../product-http.service";
 
 export class FoodListComponent implements OnInit{
 
-  area = new FormControl();
-  areaList: string[] = ['Jerusalem', 'North', 'Haifa', 'Centre', 'Tel Aviv', 'South', 'Judea and Samaria Area'];
-
-
   public products: Product[] = [];
 
-  constructor(private productHTTPService: ProductHTTPService) {  }
+  constructor(private productHTTPService: ProductHTTPService, public dialog: MatDialog) {  }
 
   ngOnInit(): void {
     this.getAllProducts();
   }
 
   getAllProducts() {
-    return this.productHTTPService.getAllProducts().subscribe(data => this.products = data);
+    return this.productHTTPService.getAllProducts().subscribe(data => this.products = data );
   }
 
+  openDialog() {
+    this.dialog.open(ProductComponent, {
+      width: '400px'
+    });
+  }
 }
