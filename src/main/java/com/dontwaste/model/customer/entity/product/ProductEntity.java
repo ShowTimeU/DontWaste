@@ -33,18 +33,20 @@ public class ProductEntity extends BaseDate {
     @Column(name = "PRICE", nullable = false)
     private Double price;
 
-    @Column(name = "KOSHER")
-    private boolean kosher;
-
-    @Column(name = "VEGETERIAN")
-    private boolean vegeterian;
-
-    @Column(name = "VEGAN")
-    private boolean vegan;
+//    @Column(name = "KOSHER")
+//    private boolean kosher;
+//
+//    @Column(name = "VEGETERIAN")
+//    private boolean vegeterian;
+//
+//    @Column(name = "VEGAN")
+//    private boolean vegan;
 
     @Column(name = "AREA")
     private String area;
 
     @Column(name = "INSTITUTION")
     private String institution;
+
+
 }
