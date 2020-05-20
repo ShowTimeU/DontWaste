@@ -30,6 +30,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {PersonalAreaComponent} from './personal-area/personal-area.component';
 import { ProductComponent } from './product/product.component';
 import {HttpClientModule} from '@angular/common/http';
+import {MatGridListModule} from "@angular/material/grid-list";
 
 const routes = [{path: 'registrationPage', component: RegistrationPageComponent},
                 {path: '', component: WelcomePageComponent},
@@ -55,7 +56,6 @@ const parentModules: Routes = [
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MatSliderModule,
     MatToolbarModule,
     MatMenuModule,
     MatIconModule,
@@ -64,7 +64,6 @@ const parentModules: Routes = [
     MatFormFieldModule,
     MatProgressSpinnerModule,
     FormsModule,
-    ReactiveFormsModule,
     MatInputModule,
     MatSelectModule,
     MatCheckboxModule,
@@ -73,10 +72,8 @@ const parentModules: Routes = [
     MatSidenavModule,
     MatListModule,
     MatDialogModule,
-    MatTableModule,
-    MatPaginatorModule,
-    HttpClientModule
-
+    HttpClientModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
