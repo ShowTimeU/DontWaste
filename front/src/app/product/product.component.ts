@@ -42,6 +42,8 @@ export class ProductComponent implements OnInit {
 
     this.productHTTPService.createProduct(this.formGroup.value).subscribe(data => {
       this.createdProduct = data;
+      window.location.reload();
     });
+
   }
 }
