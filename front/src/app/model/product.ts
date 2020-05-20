@@ -16,9 +16,22 @@ export class Product {
   private _createdOn: string;
   // tslint:disable-next-line:variable-name
   private _updatedOn: string;
+  // tslint:disable-next-line:variable-name
+  private _kosher: boolean;
+  // tslint:disable-next-line:variable-name
+  private _vegeterian: boolean;
+  // tslint:disable-next-line:variable-name
+  private _vegan: boolean;
+  // tslint:disable-next-line:variable-name
+  private _area: string;
+  // tslint:disable-next-line:variable-name
+  private _institution: string;
+
 
   // tslint:disable-next-line:max-line-length
-  constructor(id: number, productName: string, description: string, image: string, startingPrice: number, price: number, createdOn: string, updatedOn: string) {
+  constructor(id: number, productName: string, description: string, image: string, startingPrice: number,
+              price: number, createdOn: string, updatedOn: string, kosher: boolean, vegeterian: boolean, vegan: boolean,
+              area: string, institution: string) {
     this._id = id;
     this._productName = productName;
     this._description = description;
@@ -27,8 +40,53 @@ export class Product {
     this._price = price;
     this._createdOn = createdOn;
     this._updatedOn = updatedOn;
+    this._kosher = kosher;
+    this._vegeterian = vegeterian;
+    this._vegan = vegan;
+    this._area = area;
+    this._institution = institution;
   }
 
+
+  get kosher(): boolean {
+    return this._kosher;
+  }
+
+  set kosher(value: boolean) {
+    this._kosher = value;
+  }
+
+  get vegeterian(): boolean {
+    return this._vegeterian;
+  }
+
+  set vegeterian(value: boolean) {
+    this._vegeterian = value;
+  }
+
+  get vegan(): boolean {
+    return this._vegan;
+  }
+
+  set vegan(value: boolean) {
+    this._vegan = value;
+  }
+
+  get area(): string {
+    return this._area;
+  }
+
+  set area(value: string) {
+    this._area = value;
+  }
+
+  get institution(): string {
+    return this._institution;
+  }
+
+  set institution(value: string) {
+    this._institution = value;
+  }
 
   get productName(): string {
     return this._productName;
