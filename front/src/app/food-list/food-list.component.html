@@ -1,69 +1,17 @@
 <router-outlet></router-outlet>
-<mat-card class="filterCard">
-  <div class="filterContainer">
-  <mat-form-field>
-    <mat-label> Choose Area </mat-label>
-    <mat-select [formControl]="area" multiple>
-
-      <mat-select-trigger>
-        {{area.value ? area.value[0] : ''}}
-        <span *ngIf="area.value?.length > 1" class="example-additional-selection">
-          (+{{area.value.length - 1}} {{area.value?.length === 2 ? 'other' : 'others'}})
-        </span>
-      </mat-select-trigger>
-      <mat-option *ngFor="let area of areaList" [value]="area">{{area}}</mat-option>
-    </mat-select>
-  </mat-form-field>
-
-  <mat-form-field>
-    <mat-label> Choose Place </mat-label>
-    <mat-select [formControl]="place" multiple>
-      <mat-select-trigger>
-        {{place.value ? place.value[0] : ''}}
-        <span *ngIf="place.value?.length > 1" class="example-additional-selection">
-          (+{{place.value.length - 1}} {{place.value?.length === 2 ? 'other' : 'others'}})
-        </span>
-      </mat-select-trigger>
-      <mat-option *ngFor="let place of placeList" [value]="place">{{place}}</mat-option>
-    </mat-select>
-  </mat-form-field>
-
-  <mat-form-field>
-    <mat-label> Kitchen </mat-label>
-    <mat-select [formControl]="kitchen" multiple>
-      <mat-select-trigger>
-        {{kitchen.value ? kitchen.value[0] : ''}}
-        <span *ngIf="kitchen.value?.length > 1" class="example-additional-selection">
-        (+{{kitchen.value.length - 1}} {{kitchen.value?.length === 2 ? 'other' : 'others'}})
-      </span>
-      </mat-select-trigger>
-      <mat-option *ngFor="let kitchen of kitchenList" [value]="kitchen">{{kitchen}}</mat-option>
-    </mat-select>
-  </mat-form-field>
-
-  <mat-form-field>
-    <mat-label> Dishes </mat-label>
-    <mat-select [formControl]="dishes" multiple>
-      <mat-select-trigger>
-        {{dishes.value ? dishes.value[0] : ''}}
-        <span *ngIf="dishes.value?.length > 1" class="example-additional-selection">
-        (+{{dishes.value.length - 1}} {{dishes.value?.length === 2 ? 'other' : 'others'}})
-      </span>
-      </mat-select-trigger>
-      <mat-option *ngFor="let dishes of dishesList" [value]="dishes">{{dishes}}</mat-option>
-    </mat-select>
-  </mat-form-field>
+<app-product></app-product>
+  <div class="container">
+    <mat-card class="card" *ngFor="let product of products">
+      <mat-card-header>
+        <mat-card-title> {{product.productName}} </mat-card-title>
+        <mat-card-subtitle> Description: {{product.description}} </mat-card-subtitle>
+        <mat-card-content> Starting price: {{product.startingPrice}} </mat-card-content><br/>
+        <mat-card-content> New price: {{product.price}} </mat-card-content>
+      </mat-card-header>
+    </mat-card>
   </div>
-</mat-card>
 
 
-<div class="container">
-  <mat-card class="card" *ngFor="let product of products">
-    <mat-card-header>
-      <mat-card-title> {{product.productName}} </mat-card-title>
-      <mat-card-subtitle> Description: {{product.description}} </mat-card-subtitle>
-      <mat-card-content> Starting price: {{product.startingPrice}} </mat-card-content><br/>
-      <mat-card-content> New price: {{product.price}} </mat-card-content>
-    </mat-card-header>
-  </mat-card>
-</div>
+
+
+
