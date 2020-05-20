@@ -15,15 +15,6 @@ import {ProductHTTPService} from "../product-http.service";
 
 export class FoodListComponent implements OnInit{
 
-  place = new FormControl();
-  placeList: string[] = ['Japanika', 'Aroma', 'Greg Cafe', 'Frangelico', 'Vivino', 'Hummus Bar', 'Humongous', 'BBB', 'Burger Saloon'];
-
-  kitchen = new FormControl();
-  kitchenList: string[] = ['Italian', 'Japanese', 'Israeli', 'Arabic', 'Fast Food', 'Mediterranean'];
-
-  dishes = new FormControl();
-  dishesList: string[] = ['Appetizers', 'Main Course', 'Desserts', 'Halal Food', 'Kosher Food', 'Salads', 'Sandwiches', 'Soups'];
-
   area = new FormControl();
   areaList: string[] = ['Jerusalem', 'North', 'Haifa', 'Centre', 'Tel Aviv', 'South', 'Judea and Samaria Area'];
 
