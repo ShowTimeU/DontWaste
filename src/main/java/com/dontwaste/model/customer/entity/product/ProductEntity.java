@@ -1,8 +1,9 @@
-package com.dontwaste.model.customer.entity;
+package com.dontwaste.model.customer.entity.product;
 
 import com.dontwaste.model.customer.base.BaseDate;
 import lombok.*;
 import org.hibernate.validator.constraints.Length;
+import org.springframework.boot.context.properties.bind.DefaultValue;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -31,4 +32,19 @@ public class ProductEntity extends BaseDate {
 
     @Column(name = "PRICE", nullable = false)
     private Double price;
+
+    @Column(name = "KOSHER")
+    private boolean kosher;
+
+    @Column(name = "VEGETERIAN")
+    private boolean vegeterian;
+
+    @Column(name = "VEGAN")
+    private boolean vegan;
+
+    @Column(name = "AREA")
+    private String area;
+
+    @Column(name = "INSTITUTION")
+    private String institution;
 }

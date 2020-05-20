@@ -1,4 +1,4 @@
-package com.dontwaste.model.customer.entity;
+package com.dontwaste.model.customer.entity.user;
 
 import com.dontwaste.model.customer.base.BaseDate;
 import lombok.*;

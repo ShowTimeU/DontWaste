@@ -2,7 +2,7 @@ package com.dontwaste.service;
 
 import com.dontwaste.converter.user.request.UserRequestConverter;
 import com.dontwaste.converter.user.response.UserResponseConverter;
-import com.dontwaste.model.customer.entity.UserEntity;
+import com.dontwaste.model.customer.entity.user.UserEntity;
 import com.dontwaste.model.customer.web.user.create.UserCreateRequest;
 import com.dontwaste.model.customer.web.user.create.UserCreateResponse;
 import com.dontwaste.repository.UserRepository;
