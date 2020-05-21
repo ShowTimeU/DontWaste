@@ -39,3 +39,7 @@ mat-card-title {
 mat-card-subtitle {
   text-align: center;
 }
+
+.form-element {
+  text-align: left;
+}
