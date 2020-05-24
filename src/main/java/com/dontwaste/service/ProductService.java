@@ -10,6 +10,7 @@ public interface ProductService {
     ProductCreationResponse createProduct(ProductCreationRequest productCreationRequest);
     void deleteProduct(Long id);
     List<ProductEntity> getAllProducts();
+    List<ProductEntity> getProductsByArea(String area);
 
 
 

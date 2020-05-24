@@ -32,4 +32,9 @@ public class ProductController {
         return productService.getAllProducts();
     }
 
+    @GetMapping(value = "/getProductsByArea")
+    public List<ProductEntity> getProductsByArea(@RequestParam(name = "area") String area){
+        return productService.getProductsByArea(area);
+    }
+
 }

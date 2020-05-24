@@ -40,4 +40,9 @@ public class ProductServiceImp implements ProductService  {
     public List<ProductEntity> getAllProducts() {
         return productRepository.findAll();
     }
+
+    @Override
+    public List<ProductEntity> getProductsByArea(String area) {
+        return productRepository.findAllByArea(area);
+    }
 }
