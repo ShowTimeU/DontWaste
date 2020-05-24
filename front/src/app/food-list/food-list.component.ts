@@ -1,10 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {Product} from "../model/product";
-import {ProductHTTPService} from "../product-http.service";
+import {ProductHTTPService} from "../services/product-http.service";
 import {MatDialog} from "@angular/material/dialog";
 import {ProductComponent} from "../product/product.component";
-
-
+import {ActivatedRoute, Router} from "@angular/router";
 
 interface Area {
   value: string;
@@ -19,7 +18,6 @@ interface Area {
 
 export class FoodListComponent implements OnInit{
 
-  private sortingProducts: Product[] = [];
   public products: Product[] = [];
   selectedValue: string;
   areas: Area[] = [
@@ -33,7 +31,10 @@ export class FoodListComponent implements OnInit{
     {value: 'Judea and Samaria Area', viewValue: 'Judea and Samaria Area'}
   ];
 
-  constructor(private productHTTPService: ProductHTTPService, public dialog: MatDialog) {  }
+  constructor(private productHTTPService: ProductHTTPService,
+              public dialog: MatDialog,
+              private route: ActivatedRoute,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.getAllProducts();
@@ -43,6 +44,10 @@ export class FoodListComponent implements OnInit{
     return this.productHTTPService.getAllProducts().subscribe(data => this.products = data);
   }
 
+  getProductsByArea() {
+    return this.productHTTPService.getProductsByArea(this.selectedValue).subscribe(data => this.products = data);
+  }
+
   openDialog() {
     this.dialog.open(ProductComponent, {
       width: '400px'
@@ -50,10 +55,10 @@ export class FoodListComponent implements OnInit{
   }
 
   onArea() {
-    for (let i=0; i <= this.products.length; i++) {
-      if (this.products[i].area === this.selectedValue) {
-        console.log('siski')
-      }
+    if (this.selectedValue == 'All') {
+      return this.getAllProducts();
     }
+    return this.getProductsByArea();
   }
+
 }
