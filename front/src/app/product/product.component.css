@@ -1,6 +1,10 @@
+h2 {
+  text-align: center;
+}
+
 mat-card {
-  max-width: 400px;
-  height: 700px;
+  max-width: 500px;
+  height: 750px;
   margin: 2em auto;
   text-align: center;
   font-size: 15px;
@@ -9,5 +13,10 @@ mat-card {
 mat-form-field {
   display: block;
   padding-bottom: 20px;
+}
+
+button {
+  display: flex;
+  margin: auto;
 }
 
