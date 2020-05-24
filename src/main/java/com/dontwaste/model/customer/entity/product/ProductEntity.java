@@ -1,11 +1,15 @@
 package com.dontwaste.model.customer.entity.product;
 
 import com.dontwaste.model.customer.base.BaseDate;
+import com.dontwaste.model.customer.entity.product.converter.DishTypeConverter;
+import com.dontwaste.model.customer.entity.product.converter.KitchenTypeConverter;
+import com.dontwaste.model.customer.entity.product.productType.DishType;
+import com.dontwaste.model.customer.entity.product.productType.KitchenType;
 import lombok.*;
 import org.hibernate.validator.constraints.Length;
-import org.springframework.boot.context.properties.bind.DefaultValue;
 
 import javax.persistence.Column;
+import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
@@ -16,7 +20,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "PRODUCT")
 public class ProductEntity extends BaseDate {
-    @Column(name = "PRODUCT_NAME", length = 100, nullable = false, unique = true)
+    @Column(name = "PRODUCT_NAME", length = 100, nullable = false)
     private String productName;
 
     @Column(name = "DESCRIPTION", nullable = false)
@@ -34,17 +38,27 @@ public class ProductEntity extends BaseDate {
     private Double price;
 
     @Column(name = "KOSHER")
-    private boolean kosher;
+    private Boolean kosher;
 
     @Column(name = "VEGETERIAN")
-    private boolean vegeterian;
+    private Boolean vegeterian;
 
+    //@Column(name = "VEGAN", columnDefinition = "boolean default false")
     @Column(name = "VEGAN")
-    private boolean vegan;
+    private Boolean vegan;
 
+    //@Column(name = "AREA", columnDefinition = "varchar(255) default 'tel-aviv'")
     @Column(name = "AREA")
     private String area;
 
     @Column(name = "INSTITUTION")
     private String institution;
+
+    @Column(name = "KITCHEN_TYPE")
+    @Convert(converter = KitchenTypeConverter.class)
+    private KitchenType kitchenType;
+
+    @Column(name = "DISH_TYPE")
+    @Convert(converter = DishTypeConverter.class)
+    private DishType dishType;
 }

@@ -7,26 +7,25 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-public enum KitchenType {
-
-    EUROPEAN(1),
-    EASTERN(2),
-    ASIAN(3),
-    FASTFOOD(4);
+public enum DishType {
+    SOUP(1),
+    MAIN_DISH(2),
+    DESSERT(3),
+    SNACK(4);
 
     private Integer id;
 
-    public static KitchenType getById(Integer id){
+    public static DishType getById(Integer id){
         if(id == null){
             return null;
         }
 
-        for(KitchenType kitchenType : KitchenType.values()){
-            if(kitchenType.getId().equals(id)){
-                return kitchenType;
+        for(DishType dishType : DishType.values()){
+            if(dishType.getId().equals(id)){
+                return dishType;
             }
         }
+
         return null;
     }
-
 }

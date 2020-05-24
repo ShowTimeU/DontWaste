@@ -1,7 +1,13 @@
 package com.dontwaste.model.admin.request;
 
+import com.dontwaste.model.customer.entity.product.converter.DishTypeConverter;
+import com.dontwaste.model.customer.entity.product.converter.KitchenTypeConverter;
+import com.dontwaste.model.customer.entity.product.productType.DishType;
+import com.dontwaste.model.customer.entity.product.productType.KitchenType;
 import lombok.*;
 import org.hibernate.validator.constraints.Length;
+
+import javax.persistence.Convert;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -31,9 +37,14 @@ public class ProductCreationRequest {
     @Length(max = 50)
     private String institution;
 
-    private boolean kosher;
-    private boolean vegeterian;
-    private boolean vegan;
+    private Boolean kosher;
+    private Boolean vegeterian;
+    private Boolean vegan;
+
+    @Convert(converter = KitchenTypeConverter.class)
+    private KitchenType kitchenType;
+    @Convert(converter = DishTypeConverter.class)
+    private DishType dishType;
 
 
 }

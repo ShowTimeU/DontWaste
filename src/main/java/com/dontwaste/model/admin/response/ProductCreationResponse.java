@@ -1,7 +1,12 @@
 package com.dontwaste.model.admin.response;
 
+import com.dontwaste.model.customer.entity.product.converter.DishTypeConverter;
+import com.dontwaste.model.customer.entity.product.converter.KitchenTypeConverter;
+import com.dontwaste.model.customer.entity.product.productType.DishType;
+import com.dontwaste.model.customer.entity.product.productType.KitchenType;
 import lombok.*;
 
+import javax.persistence.Convert;
 import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
@@ -17,11 +22,16 @@ public class ProductCreationResponse {
     private String image;
     private Double startingPrice;
     private Double price;
-    private boolean kosher;
-    private boolean vegeterian;
-    private boolean vegan;
+    private Boolean kosher;
+    private Boolean vegeterian;
+    private Boolean vegan;
     private String area;
     private String institution;
+
+    @Convert(converter = KitchenTypeConverter.class)
+    private KitchenType kitchenType;
+    @Convert(converter = DishTypeConverter.class)
+    private DishType dishType;
 
 
 }

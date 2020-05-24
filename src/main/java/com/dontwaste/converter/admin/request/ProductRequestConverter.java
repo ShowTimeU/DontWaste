@@ -16,9 +16,11 @@ public class ProductRequestConverter {
             .price(productCreationRequest.getPrice())
             .area(productCreationRequest.getArea())
             .institution(productCreationRequest.getInstitution())
-            .kosher(productCreationRequest.isKosher())
-            .vegan(productCreationRequest.isVegan())
-            .vegeterian(productCreationRequest.isVegeterian())
+            .kosher(productCreationRequest.getKosher())
+            .vegan(productCreationRequest.getVegan())
+            .vegeterian(productCreationRequest.getVegeterian())
+            .dishType(productCreationRequest.getDishType())
+            .kitchenType(productCreationRequest.getKitchenType())
             .build();
     }
 

@@ -19,9 +19,9 @@ public class ProductResponseConverter {
                 .price(productEntity.getPrice())
                 .area(productEntity.getArea())
                 .institution(productEntity.getInstitution())
-                .kosher(productEntity.isKosher())
-                .vegan(productEntity.isVegan())
-                .vegeterian(productEntity.isVegeterian())
+                .kosher(productEntity.getKosher())
+                .vegan(productEntity.getVegan())
+                .vegeterian(productEntity.getVegeterian())
                 .build();
     }
 }
