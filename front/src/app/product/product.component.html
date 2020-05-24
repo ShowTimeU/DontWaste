@@ -2,6 +2,10 @@
   <h2> Create Product </h2>
 
   <mat-form-field>
+    <input matInput placeholder="Institution" formControlName="institution" required>
+  </mat-form-field>
+
+  <mat-form-field>
     <input matInput placeholder="Product Name" formControlName="productName" required>
   </mat-form-field>
 
@@ -28,10 +32,6 @@
         {{area.viewValue}}
       </mat-option>
     </mat-select>
-  </mat-form-field>
-
-  <mat-form-field>
-    <input matInput placeholder="Institution" formControlName="institution" required>
   </mat-form-field>
 
   <button mat-raised-button color="primary" type="submit" class="button" [disabled]="!formGroup.valid"> Register </button>
