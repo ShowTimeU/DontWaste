@@ -21,14 +21,7 @@ export class NavigationComponent {
     this.sidenav.close();
   }
 
-  constructor(public dialog: MatDialog,
-              private authenticationService: AuthenticationService,
-              private router: Router) {}
-
-  logout() {
-    this.authenticationService.logout();
-    this.router.navigate(['/']);
-  }
+  constructor(public dialog: MatDialog) {}
 
   openDialog() {
     this.dialog.open(LoginPageComponent, {
