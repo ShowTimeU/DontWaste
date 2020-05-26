@@ -1,7 +1,7 @@
 <div mat-dialog-content>
 
   <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
-    <h1>Log In</h1>
+    <h1> Log In </h1>
     <mat-form-field>
       <input matInput placeholder="Email Address" formControlName="email" required>
     </mat-form-field>
@@ -9,9 +9,8 @@
       <input type="password" matInput placeholder="Password" formControlName="password" required>
     </mat-form-field>
     <div class="button"><button mat-raised-button color="primary" type="submit" [disabled]="!formGroup.valid" > Sign In </button></div><br/>
-    <h2 class="customer"><span> New customer? </span></h2>
-    <div class="button"><a [routerLink]="['registrationPage']"><button mat-raised-button color="primary" (click)="onClick()"> Create Account </button></a></div>
-
   </form>
 
+  <h2 class="customer"><span> New customer? </span></h2>
+  <div class="button"><a [routerLink]="['registrationPage']"><button mat-raised-button color="primary"> Create Account </button></a></div>
 </div>
