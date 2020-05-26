@@ -39,12 +39,8 @@ export class RegistrationPageComponent implements OnInit {
               private userHTTPService: UserHttpService,
               private router: Router,
               private userService: UserHttpService,
-              private alertService: AlertService,
-              private authenticationService: AuthenticationService
-  ) {
-    if (this.authenticationService.currentUserValue) {
-      this.router.navigate(['/foodlistPage']); }
-    }
+              private alertService: AlertService
+  ) { }
     ngOnInit(): void {
       this.formGroup = this.fb.group({
         name: new FormControl('', Validators.pattern('[a-zA-Z ]*')),
