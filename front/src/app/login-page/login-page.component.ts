@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
 import {MatDialog} from '@angular/material/dialog';
+import {ActivatedRoute, Router} from '@angular/router';
+import {UserHttpService} from "../services/user-http.service";
+import {User} from "../model/user";
 
 @Component({
   selector: 'app-login-page',
@@ -14,17 +17,17 @@ export class LoginPageComponent implements OnInit {
     password: new FormControl('')
   });
 
+
   constructor(private dialog: MatDialog) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
   onSubmit() {
     this.dialog.closeAll();
-    console.log(this.formGroup.value);
+    if (this.formGroup.invalid) {
+      return;
+    }
   }
 
-  onClick() {
-    this.dialog.closeAll();
-  }
 }
