@@ -12,7 +12,6 @@
   text-align: center;
   margin-right: 20px;
   margin-bottom: 3.5%;
-  text-align: center;
 }
 .header-image {
   background-image: url('https://media-cdn.tripadvisor.com/media/photo-s/10/2d/f6/bd/japanika.jpg');
@@ -40,6 +39,8 @@ mat-card-subtitle {
   text-align: center;
 }
 
-.form-element {
+.filterContainer {
+  margin: 40px auto 0;
+  width: 10%;
   text-align: left;
 }

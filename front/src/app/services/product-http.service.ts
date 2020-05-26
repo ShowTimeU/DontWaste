@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {Product} from './model/product';
-import {User} from "./model/user";
+import {Product} from '../model/product';
 
 @Injectable({
   providedIn: 'root'
@@ -15,11 +14,14 @@ export class ProductHTTPService {
     return this.httpClient.post<Product>('/api/createProduct', body);
   }
 
-  createUser(body): Observable<User> {
-    return this.httpClient.post<User>('/api/createUser', body);
-  }
-
   getAllProducts(): Observable<Product[]> {
     return this.httpClient.get<Product[]>('/api/getAllProducts');
   }
+
+  getProductsByArea(areaName): Observable<Product[]> {
+    let params = new HttpParams();
+    params = params.set('area', areaName);
+    return this.httpClient.get<Product[]>('/api/getProductsByArea', {params: params});
+  }
+
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Product} from '../model/product';
-import {ProductHTTPService} from '../product-http.service';
+import {ProductHTTPService} from '../services/product-http.service';
 
 interface Area {
   value: string;
