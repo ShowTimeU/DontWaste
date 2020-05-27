@@ -1,4 +1,4 @@
-package com.dontwaste.model.customer.web.user.create;
+package com.dontwaste.model.customer.web.user.create.request;
 
 
 import lombok.*;

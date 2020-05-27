@@ -1,4 +1,4 @@
-package com.dontwaste.model.customer.web.user.create;
+package com.dontwaste.model.customer.web.user.response;
 
 import lombok.*;
 
@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Getter @Setter
 @Builder
-public class UserCreateResponse {
+public class UserResponse {
 
     private Long id;
     private LocalDateTime createdOn;

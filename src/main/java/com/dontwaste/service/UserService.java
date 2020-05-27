@@ -1,13 +1,14 @@
 package com.dontwaste.service;
 
 import com.dontwaste.model.customer.entity.user.UserEntity;
-import com.dontwaste.model.customer.web.user.create.UserCreateRequest;
-import com.dontwaste.model.customer.web.user.create.UserCreateResponse;
+import com.dontwaste.model.customer.web.user.create.request.UserCreateRequest;
+import com.dontwaste.model.customer.web.user.login.UserLoginRequest;
+import com.dontwaste.model.customer.web.user.response.UserResponse;
 
 public interface UserService {
-    UserCreateResponse createUser(UserCreateRequest userCreateRequest);
+    UserResponse createUser(UserCreateRequest userCreateRequest);
     void deleteUser(Long id);
-    UserEntity getUserByEmail(String email);
+    UserResponse getUserForLogin(UserLoginRequest userLoginRequest);
 
 
 
