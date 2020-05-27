@@ -22,6 +22,7 @@ public class ProductResponseConverter {
 //                .kosher(productEntity.isKosher())
 //                .vegan(productEntity.isVegan())
 //                .vegeterian(productEntity.isVegeterian())
+                .quantity(productEntity.getQuantity())
                 .build();
     }
 }

@@ -48,5 +48,8 @@ public class ProductEntity extends BaseDate {
     @Column(name = "INSTITUTION")
     private String institution;
 
+    @Column(name = "QUANTITY")
+    private Integer quantity;
+
 
 }

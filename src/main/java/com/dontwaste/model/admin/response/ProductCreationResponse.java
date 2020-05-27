@@ -22,6 +22,7 @@ public class ProductCreationResponse {
 //    private boolean vegan;
     private String area;
     private String institution;
+    private Integer quantity;
 
 
 }

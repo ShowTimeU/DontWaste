@@ -19,6 +19,7 @@ public class ProductRequestConverter {
 //            .kosher(productCreationRequest.isKosher())
 //            .vegan(productCreationRequest.isVegan())
 //            .vegeterian(productCreationRequest.isVegeterian())
+             .quantity(productCreationRequest.getQuantity())
             .build();
     }
 

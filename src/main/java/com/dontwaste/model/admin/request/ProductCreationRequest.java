@@ -30,6 +30,8 @@ public class ProductCreationRequest {
     @NotBlank
     @Length(max = 50)
     private String institution;
+    @NotNull
+    private Integer quantity;
 
 //    private boolean kosher;
 //    private boolean vegeterian;
