@@ -26,12 +26,15 @@ export class Product {
   private _area: string;
   // tslint:disable-next-line:variable-name
   private _institution: string;
+  // tslint:disable-next-line:variable-name
+  private _quantity: number;
+
 
 
   // tslint:disable-next-line:max-line-length
   constructor(id: number, productName: string, description: string, image: string, startingPrice: number,
               price: number, createdOn: string, updatedOn: string, kosher: boolean, vegeterian: boolean, vegan: boolean,
-              area: string, institution: string) {
+              area: string, institution: string, quantity: number) {
     this._id = id;
     this._productName = productName;
     this._description = description;
@@ -45,8 +48,17 @@ export class Product {
     this._vegan = vegan;
     this._area = area;
     this._institution = institution;
+    this._quantity = quantity;
   }
 
+
+  get quantity(): number {
+    return this._quantity;
+  }
+
+  set quantity(value: number) {
+    this._quantity = value;
+  }
 
   get kosher(): boolean {
     return this._kosher;
