@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
-import { LoginPageComponent } from './login-page/login-page.component';
-import { RegistrationPageComponent } from './registration-page/registration-page.component';
+import { LoginPageComponent } from './userComponents/loginPage/login-page.component';
+import { RegistrationPageComponent } from './userComponents/registrationPage/registration-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatMenuModule} from '@angular/material/menu';
@@ -17,20 +17,26 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatCheckboxModule} from '@angular/material/checkbox';
-import {RouterModule, Routes} from '@angular/router';
+import {RouterModule} from '@angular/router';
 import {MatSidenavModule} from '@angular/material/sidenav';
-import {FoodListComponent} from './food-list/food-list.component';
+import {MainProductPageComponent} from './productComponents/mainProductPage/main-product-page.component';
 import {NavigationComponent} from './navigation/navigation.component';
 import {MatListModule} from '@angular/material/list';
 import {MatDialogModule} from '@angular/material/dialog';
-import {PersonalAreaComponent} from './personal-area/personal-area.component';
-import { ProductComponent } from './product/product.component';
+import {PersonalAreaComponent} from './userComponents/personalArea/personal-area.component';
 import {HttpClientModule} from '@angular/common/http';
+import {MatChipsModule} from "@angular/material/chips";
+import { ShoppingCartComponent } from './productComponents/shoppingCart/shopping-cart.component';
+import { CartProductComponent } from './productComponents/shoppingCartProduct/cart-product.component';
+import { ProductViewComponent } from './productComponents/productView/product-view.component';
+import { ProductListComponent } from './productComponents/productList/product-list.component';
+import {MatTableModule} from "@angular/material/table";
+import {ProductRegistrationComponent} from "./productComponents/productRegistration/product-registration.component";
 
 const routes = [{path: 'registrationPage', component: RegistrationPageComponent},
                 {path: '', component: WelcomePageComponent},
                 {path: 'loginPage', component: LoginPageComponent},
-                {path: 'foodlistPage', component: FoodListComponent},
+                {path: 'mainProductPage', component: MainProductPageComponent},
                 {path: 'personalAreaPage', component: PersonalAreaComponent}];
 
 
@@ -40,10 +46,14 @@ const routes = [{path: 'registrationPage', component: RegistrationPageComponent}
     WelcomePageComponent,
     LoginPageComponent,
     RegistrationPageComponent,
-    FoodListComponent,
+    MainProductPageComponent,
     NavigationComponent,
     PersonalAreaComponent,
-    ProductComponent
+    ProductRegistrationComponent,
+    ShoppingCartComponent,
+    CartProductComponent,
+    ProductViewComponent,
+    ProductListComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,6 +75,8 @@ const routes = [{path: 'registrationPage', component: RegistrationPageComponent}
     MatDialogModule,
     HttpClientModule,
     ReactiveFormsModule,
+    MatChipsModule,
+    MatTableModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
