@@ -1,0 +1,23 @@
+<router-outlet></router-outlet>
+
+<button mat-raised-button (click)="openDialog()" color="primary" class="menuBtn"> Add New Product </button>
+
+<div class="container">
+  <div class="cards">
+    <product-list (productAdded)="addProductToCart($event)" [products]="productList"></product-list>
+  </div>
+
+  <div class="cart">
+    <shopping-cart [products]="cartProductList" (productRemoved)="removeProduct($event)" class="cart"></shopping-cart>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
