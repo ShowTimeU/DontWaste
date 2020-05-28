@@ -1,0 +1,43 @@
+.productCards {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+h1 {
+  text-align: center;
+}
+.productList {
+  width: 1100px;
+  padding-right: 3px;
+}
+.card {
+  width: 350px;
+  margin-top: 3.5%;
+  height: 350px;
+  text-align: center;
+  margin-right: 10px;
+  margin-bottom: 3.5%;
+}
+.header-image {
+  background-image: url('https://media-cdn.tripadvisor.com/media/photo-s/10/2d/f6/bd/japanika.jpg');
+  background-size: cover;
+  width: 80px;
+  height: 80px;
+}
+mat-form-field {
+  font-size: 16px;
+  text-align: left;
+}
+mat-card-header {
+  text-align: center;
+}
+mat-card-title {
+  text-align: center;
+}
+mat-card-subtitle {
+  text-align: center;
+}
+
+.filterContainer {
+  margin: 20px auto 0;
+}
