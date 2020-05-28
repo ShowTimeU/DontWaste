@@ -4,7 +4,7 @@ import {Product} from "../model/product";
 
 
 @Component({
-  selector: 'app-welcome-page',
+  selector: 'welcome-page',
   templateUrl: './welcome-page.component.html',
   styleUrls: ['./welcome-page.component.css']
 })
