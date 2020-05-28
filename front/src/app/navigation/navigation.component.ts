@@ -1,12 +1,11 @@
 import {Component, ViewChild} from '@angular/core';
 import {MatSidenav} from '@angular/material/sidenav';
 import {MatDialog} from '@angular/material/dialog';
-import {LoginPageComponent} from '../login-page/login-page.component';
-import {AuthenticationService} from "../services/authentication.service";
-import {Router} from "@angular/router";
+import {LoginPageComponent} from '../userComponents/loginPage/login-page.component';
+
 
 @Component({
-  selector: 'app-navigation',
+  selector: 'navigation',
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.css']
 })
