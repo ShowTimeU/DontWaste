@@ -1,0 +1,22 @@
+<table *ngIf="product" mat-table>
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef><b> {{product.productName}} </b>
+    </th>
+  </ng-container>
+
+  <ng-container matColumnDef="price">
+    <th mat-header-cell *matHeaderCellDef> Price: {{calcPrice()}}₪ </th>
+  </ng-container>
+
+  <ng-container matColumnDef="quantity">
+    <th mat-header-cell *matHeaderCellDef>
+      Quantity: <input matInput class="input" type="number" [(ngModel)]="product.num" min="0" (ngModelChange)="modelChanged($event)"/>
+    </th>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table><br/>
+
+
+
