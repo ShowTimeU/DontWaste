@@ -1,0 +1,16 @@
+<mat-card>
+<h1 class="title"> Shopping Cart ({{calcTotal()}}) </h1><br/>
+
+<h1>
+  <cart-product *ngFor="let product of products" [product]="product" (productRemoved)="removeProduct($event)"></cart-product>
+</h1>
+
+<div class="totalPrice" *ngIf="products.length">
+  <button mat-raised-button color="accent" role="button" *ngIf="products.length" [disabled]="products.length < 1" >
+    <mat-icon>shopping_cart</mat-icon> Checkout {{ products.length }} Item{{ products.length > 1 ? 's' : '' }}</button><br/>
+
+  <h2 class="totalPrice"> Total: {{calcTotalPrice()}}₪ </h2>
+</div>
+</mat-card>
+
+
