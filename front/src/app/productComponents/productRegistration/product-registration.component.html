@@ -1,0 +1,43 @@
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+  <h2> Create Product </h2>
+
+  <mat-form-field>
+    <input matInput placeholder="Institution" formControlName="institution" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Product Name" formControlName="productName" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Description" formControlName="description" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Image" formControlName="image" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Starting Price" formControlName="startingPrice" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Price" formControlName="price" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput type="number" placeholder="Quantity" formControlName="quantity" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label> Choose Area </mat-label>
+    <mat-select [(ngModel)]="selectedValue" formControlName="area" required>
+      <mat-option *ngFor="let area of areas" [value]="area.value">
+        {{area.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit" class="button" [disabled]="!formGroup.valid"> Register </button>
+</form>
+
