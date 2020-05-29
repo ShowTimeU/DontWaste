@@ -1,4 +1,7 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {MatDialog} from "@angular/material/dialog";
+import {CartProductComponent} from "../shoppingCartProduct/cart-product.component";
+import {CheckoutDialogComponent} from "../checkoutDialog/checkout-dialog.component";
 
 @Component({
   selector: 'shopping-cart',
@@ -6,11 +9,10 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
   styleUrls: ['./shopping-cart.component.css']
 })
 export class ShoppingCartComponent {
-
   @Input() products: any[];
   @Output() productRemoved = new EventEmitter();
 
-  constructor() {
+  constructor(private dialog: MatDialog) {
   }
 
   calcTotal() {
@@ -25,4 +27,14 @@ export class ShoppingCartComponent {
     return this.products.reduce((acc, prod) => acc+= (prod.price * prod.num) ,0);
   }
 
+  checkout() {
+    this.dialog.open(CheckoutDialogComponent, {
+      minHeight: '500px',
+      width: '500px',
+      data: {productName: this.products.map(value => value = value.productName),
+             totalPrice: this.calcTotalPrice(),
+             price: this.products.map(value => String(value.price*value.num + '₪')),
+             quantity: this.products.map(value => String(value = value.num + ' pcs.'))}
+    })
+  }
 }
