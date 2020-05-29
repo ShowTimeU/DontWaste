@@ -1,6 +1,7 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ProductHTTPService} from "../services/product-http.service";
 import {Product} from "../model/product";
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -12,7 +13,8 @@ export class WelcomePageComponent implements OnInit {
 
   public products: Product[] = [];
 
-  constructor(private productHTTPService: ProductHTTPService) { }
+  constructor(private productHTTPService: ProductHTTPService,
+              private router: Router) { }
 
   ngOnInit() {
     this.getAllProducts();
