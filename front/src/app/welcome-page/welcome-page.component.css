@@ -15,16 +15,17 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   text-align: center;
-  max-width: 1310px;
+  max-width: 1470px;
 }
 
 .card {
-  width: 300px;
+  width: 350px;
   margin-top: 3.5%;
   height: 300px;
-  margin-right: 20px;
-  margin-bottom: 3.5%;
   text-align: center;
+  margin-right: 10px;
+  margin-bottom: 2%;
+
 }
 
 .header-image {
