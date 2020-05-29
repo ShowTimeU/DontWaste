@@ -32,12 +32,15 @@ import { ProductViewComponent } from './productComponents/productView/product-vi
 import { ProductListComponent } from './productComponents/productList/product-list.component';
 import {MatTableModule} from "@angular/material/table";
 import {ProductRegistrationComponent} from "./productComponents/productRegistration/product-registration.component";
+import { CheckoutDialogComponent } from './productComponents/checkoutDialog/checkout-dialog.component';
+import { PayPageComponent } from './payPage/pay-page.component';
 
 const routes = [{path: 'registrationPage', component: RegistrationPageComponent},
                 {path: '', component: WelcomePageComponent},
                 {path: 'loginPage', component: LoginPageComponent},
                 {path: 'mainProductPage', component: MainProductPageComponent},
-                {path: 'personalAreaPage', component: PersonalAreaComponent}];
+                {path: 'personalAreaPage', component: PersonalAreaComponent},
+                {path: 'payPage', component: PayPageComponent},];
 
 
 @NgModule({
@@ -54,6 +57,8 @@ const routes = [{path: 'registrationPage', component: RegistrationPageComponent}
     CartProductComponent,
     ProductViewComponent,
     ProductListComponent,
+    CheckoutDialogComponent,
+    PayPageComponent,
   ],
   imports: [
     BrowserModule,
