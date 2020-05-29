@@ -28,13 +28,23 @@ export class Product {
   private _institution: string;
   // tslint:disable-next-line:variable-name
   private _quantity: number;
+  // tslint:disable-next-line:variable-name
+  private _totalPrice: number;
 
 
+  get totalPrice(): number {
+    return this._totalPrice;
+  }
 
-  // tslint:disable-next-line:max-line-length
+  set totalPrice(value: number) {
+    this._totalPrice = value;
+  }
+
+// tslint:disable-next-line:max-line-length
+
   constructor(id: number, productName: string, description: string, image: string, startingPrice: number,
               price: number, createdOn: string, updatedOn: string, kosher: boolean, vegeterian: boolean, vegan: boolean,
-              area: string, institution: string, quantity: number) {
+              area: string, institution: string, quantity: number, totalPrice: number) {
     this._id = id;
     this._productName = productName;
     this._description = description;
@@ -49,6 +59,7 @@ export class Product {
     this._area = area;
     this._institution = institution;
     this._quantity = quantity;
+    this._totalPrice = totalPrice*quantity;
   }
 
 
