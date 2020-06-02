@@ -1,20 +1,28 @@
 <mat-sidenav-container class="example-container" (backdropClick)="close('backdrop')">
-  <mat-sidenav #sidenav (keydown.escape)="close('escape')" disableClose>
+
+  <mat-sidenav #sidenav (keydown.escape)="close('escape')" >
     <mat-nav-list>
       <div class="menu">
-        <a [routerLink]="['']"><button (click)="sidenav.close()" mat-icon-button color="primary" class="menuBtn1"><mat-icon>home</mat-icon></button></a><br/>
-        <button button mat-stroked-button (click)="openDialog()" (click)="sidenav.close()" color="primary" class="menuBtn1"> Log In </button><br/>
-        <a [routerLink]="['registrationPage']"><button mat-stroked-button (click)="sidenav.close()" color="primary" class="menuBtn1"> Sign Up </button></a><br/>
-        <a [routerLink]="['mainProductPage']"><button mat-stroked-button (click)="sidenav.close()" color="primary" class="menuBtn1"> Food List </button></a><br/><br/>
+        <a [routerLink]="['']"><button (click)="sidenav.close()" mat-icon-button color="primary" class="menuBtn1">
+          <mat-icon>home</mat-icon>
+        </button></a><br/>
+        <a [routerLink]="['registrationPage']"><button mat-stroked-button (click)="sidenav.close()" color="primary" class="menuBtn1">
+          Sign Up </button></a><br/>
+        <a [routerLink]="['mainProductPage']"><button mat-stroked-button (click)="sidenav.close()" color="primary" class="menuBtn1">
+          Food List </button></a><br/><br/>
       </div>
     </mat-nav-list>
   </mat-sidenav>
 
   <mat-sidenav-content>
     <mat-toolbar class="example-toolbar">
-      <button mat-icon-button (click)="sidenav.open()"><mat-icon>menu</mat-icon></button>
+      <button mat-raised-button (click)="openDialog()" color="primary" class="loginBtn"> Sign In </button><br/>
+      <button mat-icon-button (click)="sidenav.open()" class="hamBtn" ><mat-icon>menu</mat-icon></button>
     </mat-toolbar>
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 
 </mat-sidenav-container>
+
+
+

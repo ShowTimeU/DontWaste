@@ -12,5 +12,5 @@
   </form>
 
   <h2 class="customer"><span> New customer? </span></h2>
-  <div class="button"><a [routerLink]="['registrationPage']"><button mat-raised-button color="primary"> Create Account </button></a></div>
+  <div class="button"><a [routerLink]="['registrationPage']"><button mat-raised-button color="primary" (click)="dialog.closeAll()" > Create Account </button></a></div>
 </div>

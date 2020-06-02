@@ -1,6 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
-import {CartProductComponent} from "../shoppingCartProduct/cart-product.component";
 import {CheckoutDialogComponent} from "../checkoutDialog/checkout-dialog.component";
 
 @Component({

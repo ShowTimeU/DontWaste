@@ -1,4 +1,4 @@
-import {Component, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ViewChild} from '@angular/core';
 import {MatSidenav} from '@angular/material/sidenav';
 import {MatDialog} from '@angular/material/dialog';
 import {LoginPageComponent} from '../userComponents/loginPage/login-page.component';
@@ -14,6 +14,7 @@ export class NavigationComponent {
 
   reason = '';
   @ViewChild('sidenav') sidenav: MatSidenav;
+
 
   close(reason: string) {
     this.reason = reason;

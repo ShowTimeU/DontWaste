@@ -1,7 +1,8 @@
-.banner img{
-  width: 1200px;
-  height: 250px;
-  margin-bottom: 100px;
+img{
+  width: 1430px;
+  height: 300px;
+  margin-bottom: 70px;
+  object-fit: cover;
 }
 .wraperZhe {
   margin: 1.5% auto;
@@ -20,12 +21,11 @@ h1 {
 
 .card {
   width: 350px;
-  margin-top: 3.5%;
+  margin-top: 2%;
   height: 300px;
   text-align: center;
   margin-right: 10px;
   margin-bottom: 2%;
-
 }
 
 .header-image {

@@ -58,7 +58,7 @@ const routes = [{path: 'registrationPage', component: RegistrationPageComponent}
     ProductViewComponent,
     ProductListComponent,
     CheckoutDialogComponent,
-    PayPageComponent,
+    PayPageComponent
   ],
   imports: [
     BrowserModule,
