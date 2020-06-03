@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter  } from '@angular/core';
+import {FormControl, Validators} from "@angular/forms";
 
 @Component({
   selector: 'cart-product',
@@ -11,17 +12,21 @@ export class CartProductComponent {
   @Output() productRemoved = new EventEmitter();
 
   modelChanged(product) {
-    if (this.product.num === 0) {
+    if (this.product.quantity === 0) {
       this.productRemoved.emit(this.product);
     }
   }
 
-  displayedColumns: string[] = ['name', 'price', 'quantity'];
+  displayedColumns: string[] = ['name', 'price', 'quantity', 'cancel'];
 
   calcPrice() {
     if (this.product.num < 1) {
       return this.product.price;
     }
     return this.product.price * this.product.num;
+  }
+
+  onClick() {
+    this.productRemoved.emit(this.product);
   }
 }

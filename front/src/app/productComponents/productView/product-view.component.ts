@@ -2,6 +2,8 @@ import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import {ProductHTTPService} from "../../services/product-http.service";
 import {MatDialog} from "@angular/material/dialog";
 import {Product} from "../../model/product";
+import {DomSanitizer} from "@angular/platform-browser";
+import {animate, state, style, transition, trigger} from "@angular/animations";
 
 interface Area {
   value: string;
@@ -32,7 +34,8 @@ export class ProductViewComponent implements OnInit {
 
 
   constructor(private productHTTPService: ProductHTTPService,
-              public dialog: MatDialog) { }
+              public dialog: MatDialog,
+              private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
     this.getAllProducts();
@@ -56,5 +59,10 @@ export class ProductViewComponent implements OnInit {
 
   addProductToCart(product: Product) {
     this.productAdded.emit(product);
+  }
+
+  flip: string = 'inactive';
+  toggleFlip() {
+    this.flip = (this.flip == 'inactive') ? 'active' : 'inactive';
   }
 }

@@ -34,6 +34,7 @@ import {MatTableModule} from "@angular/material/table";
 import {ProductRegistrationComponent} from "./productComponents/productRegistration/product-registration.component";
 import { CheckoutDialogComponent } from './productComponents/checkoutDialog/checkout-dialog.component';
 import { PayPageComponent } from './payPage/pay-page.component';
+import {MatProgressBarModule} from "@angular/material/progress-bar";
 
 const routes = [{path: 'registrationPage', component: RegistrationPageComponent},
                 {path: '', component: WelcomePageComponent},
@@ -60,29 +61,30 @@ const routes = [{path: 'registrationPage', component: RegistrationPageComponent}
     CheckoutDialogComponent,
     PayPageComponent
   ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    MatToolbarModule,
-    MatMenuModule,
-    MatIconModule,
-    MatButtonModule,
-    MatCardModule,
-    MatFormFieldModule,
-    MatProgressSpinnerModule,
-    FormsModule,
-    MatInputModule,
-    MatSelectModule,
-    MatCheckboxModule,
-    RouterModule.forRoot(routes),
-    MatSidenavModule,
-    MatListModule,
-    MatDialogModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-    MatChipsModule,
-    MatTableModule,
-  ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        MatToolbarModule,
+        MatMenuModule,
+        MatIconModule,
+        MatButtonModule,
+        MatCardModule,
+        MatFormFieldModule,
+        MatProgressSpinnerModule,
+        FormsModule,
+        MatInputModule,
+        MatSelectModule,
+        MatCheckboxModule,
+        RouterModule.forRoot(routes),
+        MatSidenavModule,
+        MatListModule,
+        MatDialogModule,
+        HttpClientModule,
+        ReactiveFormsModule,
+        MatChipsModule,
+        MatTableModule,
+        MatProgressBarModule,
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

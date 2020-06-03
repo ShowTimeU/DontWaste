@@ -24,7 +24,9 @@ export class MainProductPageComponent implements OnInit{
       this.cartProductList.push({...product, num:1});
       return;
     }
-    productExistInCart.num += 1;
+    else {
+      productExistInCart.num += 1;
+    }
   }
 
   removeProduct(product) {

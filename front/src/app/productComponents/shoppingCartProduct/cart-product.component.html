@@ -1,6 +1,6 @@
 <table *ngIf="product" mat-table>
   <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef><b> {{product.productName}} </b>
+    <th mat-header-cell *matHeaderCellDef> Name: <b>{{product.productName}} </b>
     </th>
   </ng-container>
 
@@ -10,7 +10,14 @@
 
   <ng-container matColumnDef="quantity">
     <th mat-header-cell *matHeaderCellDef>
-      Quantity: <input matInput class="input" type="number" [(ngModel)]="product.num" min="0" (ngModelChange)="modelChanged($event)"/>
+      Quantity: <input matInput class="input" type="number" [(ngModel)]="product.num" min="1" [max]="product.quantity"
+                       (ngModelChange)="modelChanged($event)" oninput="validity.valid||(value='');" />
+    </th>
+  </ng-container>
+
+  <ng-container matColumnDef="cancel" class="cancelBtn">
+    <th mat-header-cell *matHeaderCellDef>
+      <button style="float: right;" mat-icon-button (click)="onClick()"><mat-icon>cancel</mat-icon></button>
     </th>
   </ng-container>
 

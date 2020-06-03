@@ -2,13 +2,12 @@ table {
   width: 100%;
 }
 .input {
-  width: 50px;
+  width: 40px;
 }
 th {
-  text-align: center;
-  font-size: 18px;
-  width: 33%;
+  font-size: 16px;
   margin-right: 5px;
+  width: 33%;
 }
 
 th.mat-header-cell {
@@ -23,9 +22,10 @@ th.mat-header-cell:first-of-type, td.mat-cell:first-of-type, td.mat-footer-cell:
 }
 th.mat-header-cell:last-of-type, td.mat-cell:last-of-type, td.mat-footer-cell:last-of-type {
   padding-left: 0;
-  text-align: center;
   padding-right: 0;
+  text-align: center;
 }
+
 mat-card {
   text-align: center;
   position: sticky;
@@ -36,3 +36,6 @@ td.mat-cell{
   border-bottom-style: none;
 }
 
+.cancelBtn {
+  width: 20%;
+}

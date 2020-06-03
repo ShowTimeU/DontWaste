@@ -13,9 +13,14 @@
     <input matInput placeholder="Description" formControlName="description" required>
   </mat-form-field>
 
-  <mat-form-field>
-    <input matInput placeholder="Image" formControlName="image" required>
-  </mat-form-field>
+
+  <button mat-button color="primary" (click)="choose.click()"><mat-icon>attachment</mat-icon> Choose Image
+  <input #choose type='file' (change)='onFileChanged($event)' formControlName="image" style="display:none;"/>
+  </button>
+  <img [src]="imgURL" height="200" *ngIf="imgURL" alt="Image preview">
+  <button mat-button color="primary" (click)="upload.click()" *ngIf="choose.value" [disabled]="choose.value == 0"><mat-icon>file_upload</mat-icon> Upload
+  <input #upload type='button' (click)='onUpload()' value='upload' style="display:none;" />
+  </button><br/>
 
   <mat-form-field>
     <input matInput placeholder="Starting Price" formControlName="startingPrice" required>

@@ -1,4 +1,4 @@
-img{
+.banner{
   width: 1430px;
   height: 300px;
   margin-bottom: 70px;
@@ -20,12 +20,9 @@ h1 {
 }
 
 .card {
-  width: 350px;
-  margin-top: 2%;
-  height: 300px;
+  width: 338px;
+  margin: 2% 11px 2% 11px;
   text-align: center;
-  margin-right: 10px;
-  margin-bottom: 2%;
 }
 
 .header-image {
@@ -48,4 +45,21 @@ mat-card-title {
 }
 mat-card-subtitle {
   text-align: center;
+}
+.productImg {
+  height: 250px;
+}
+.price {
+  display: flex;
+  font-size: 16px;
+  margin-bottom: 40px;
+}
+.newPrice {
+  left: 51%;
+  position: absolute;
+}
+.oldPrice {
+  position: absolute;
+  right: 51%;
+  text-decoration: line-through;
 }

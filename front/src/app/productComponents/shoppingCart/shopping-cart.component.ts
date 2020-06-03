@@ -28,7 +28,6 @@ export class ShoppingCartComponent {
 
   checkout() {
     this.dialog.open(CheckoutDialogComponent, {
-      minHeight: '500px',
       width: '500px',
       data: {productName: this.products.map(value => value = value.productName),
              totalPrice: this.calcTotalPrice(),
