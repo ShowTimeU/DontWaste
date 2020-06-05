@@ -16,6 +16,7 @@
 
   <mat-sidenav-content>
     <mat-toolbar class="example-toolbar">
+      <button mat-button (click)="openCart()" color="primary" class="cartBtn"><mat-icon>shopping_cart</mat-icon></button>
       <button mat-raised-button (click)="openDialog()" color="primary" class="loginBtn"> Sign In </button><br/>
       <button mat-icon-button (click)="sidenav.open()" class="hamBtn" ><mat-icon>menu</mat-icon></button>
     </mat-toolbar>

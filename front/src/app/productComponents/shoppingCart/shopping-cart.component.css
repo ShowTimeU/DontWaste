@@ -1,8 +1,7 @@
 mat-card {
-  margin-left: 60px;
-  width: 415px;
   position: sticky;
   top: 71px;
+  margin-left: 10%;
 }
 
 mat-card-title {

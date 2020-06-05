@@ -37,3 +37,7 @@ mat-toolbar {
   left: 2%;
   font-size: 40px;
 }
+.cartBtn {
+  position: absolute;
+  right: 11%;
+}

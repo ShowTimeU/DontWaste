@@ -14,9 +14,7 @@ export class UserHttpService {
     return this.httpClient.post<User>('/api/createUser', user);
   }
 
-  getUserByEmail(email): Observable<User[]> {
-    let params = new HttpParams();
-    params = params.set('email', email);
-    return this.httpClient.get<User[]>('/api/getUserByEmail', {params: params});
+  getUserByEmail(email): Observable<User> {
+    return this.httpClient.post<User>('/api/getUserByEmail', email);
   }
 }

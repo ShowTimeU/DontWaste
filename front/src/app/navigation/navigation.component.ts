@@ -2,6 +2,8 @@ import {AfterViewInit, Component, ViewChild} from '@angular/core';
 import {MatSidenav} from '@angular/material/sidenav';
 import {MatDialog} from '@angular/material/dialog';
 import {LoginPageComponent} from '../userComponents/loginPage/login-page.component';
+import {ShoppingCartComponent} from "../productComponents/shoppingCart/shopping-cart.component";
+import {CheckoutDialogComponent} from "../productComponents/checkoutDialog/checkout-dialog.component";
 
 
 @Component({
@@ -29,4 +31,6 @@ export class NavigationComponent {
     });
   }
 
+  openCart() {
+  }
 }

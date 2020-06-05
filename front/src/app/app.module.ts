@@ -35,13 +35,19 @@ import {ProductRegistrationComponent} from "./productComponents/productRegistrat
 import { CheckoutDialogComponent } from './productComponents/checkoutDialog/checkout-dialog.component';
 import { PayPageComponent } from './payPage/pay-page.component';
 import {MatProgressBarModule} from "@angular/material/progress-bar";
+import {UtilService} from "./services/util.service";
+import {AlertService} from "./services/alert.service";
+import {AuthenticationService} from "./services/authentication.service";
+import {ProductHTTPService} from "./services/product-http.service";
+import {UserHttpService} from "./services/user-http.service";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 const routes = [{path: 'registrationPage', component: RegistrationPageComponent},
                 {path: '', component: WelcomePageComponent},
                 {path: 'loginPage', component: LoginPageComponent},
                 {path: 'mainProductPage', component: MainProductPageComponent},
                 {path: 'personalAreaPage', component: PersonalAreaComponent},
-                {path: 'payPage', component: PayPageComponent},];
+                {path: 'payPage', component: PayPageComponent}];
 
 
 @NgModule({
@@ -84,8 +90,14 @@ const routes = [{path: 'registrationPage', component: RegistrationPageComponent}
         MatChipsModule,
         MatTableModule,
         MatProgressBarModule,
+        MatSnackBarModule
     ],
-  providers: [],
+  providers: [AlertService,
+              AuthenticationService,
+              ProductHTTPService,
+              UserHttpService,
+              UtilService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
