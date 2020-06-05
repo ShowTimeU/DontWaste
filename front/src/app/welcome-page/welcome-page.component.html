@@ -1,8 +1,5 @@
 <div class="wraperZhe">
 
-  <img class="banner"
-         src="https://images-na.ssl-images-amazon.com/images/S/sgp-catalog-images/region_US/zdqt5-2GHAJ6F6EJC-Full-Image_GalleryBackground-en-US-1518405554811._RI_.jpg">
-
   <h1> Hot Dishes </h1>
   <div class="container">
     <mat-card class="card" *ngFor="let product of products">
@@ -25,5 +22,5 @@
       </mat-card-actions>
     </mat-card>
   </div>
-  <a [routerLink]="['mainProductPage']"><button mat-raised-button color="primary"> Check All Dishes... </button></a>
+  <a [routerLink]="['mainProductPage']"><button mat-raised-button color="primary" class="btn"> Check All Dishes... </button></a>
 </div>

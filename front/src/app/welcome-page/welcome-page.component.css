@@ -1,22 +1,16 @@
-.banner{
-  width: 1430px;
-  height: 300px;
-  margin-bottom: 70px;
-  object-fit: cover;
-}
-.wraperZhe {
-  margin: 1.5% auto;
-  text-align: center;
-}
 h1 {
+  position: absolute;
   font-size: 30px;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .container {
+  margin-top: 4%;
   display: flex;
   flex-wrap: wrap;
   text-align: center;
-  max-width: 1470px;
+  max-width: 80%;
 }
 
 .card {
@@ -62,4 +56,12 @@ mat-card-subtitle {
   position: absolute;
   right: 51%;
   text-decoration: line-through;
+}
+.btn {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  margin-top: 2%;
+  margin-bottom: 2%;
 }

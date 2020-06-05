@@ -1,16 +1,16 @@
 .container {
+  position: absolute;
   display: flex;
-  margin-left: 2%;
+  min-width: 100%;
 }
 .menuBtn {
   display: block;
   margin: 20px auto;
   text-align: center;
 }
-
-.cards {
-  text-align: center;
+.productList {
+  width: 70%;
 }
-.cart {
-  min-width: 45%;
+.shoppingCart {
+  width: 30%;
 }
