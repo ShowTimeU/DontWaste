@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {User} from "../../model/user";
+import {UserHttpService} from "../../services/user-http.service";
 
 
 @Component({
@@ -9,31 +11,15 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
   styleUrls: ['./personal-area.component.css'],
 })
 export class PersonalAreaComponent implements OnInit {
+  user: User;
 
-  formGroup = new FormGroup ({
-    name: new FormControl('', Validators.pattern('[a-zA-Z ]*')),
-    email: new FormControl('', Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')),
-    phone: new FormControl('', Validators.pattern('[0-9 ]{9}')),
-    area: new FormControl('')
-  });
-
-  data: any;
-  public toggleButton = true;
-
-  constructor(private route: ActivatedRoute, private router: Router) {
-    this.route.queryParams.subscribe(params => {
-      if (this.router.getCurrentNavigation().extras.state) {
-        this.data = this.router.getCurrentNavigation().extras.state.user;
-      }
-    });
-  }
+  constructor(private http: UserHttpService) { }
 
   ngOnInit(): void {
+    this.http.currentUser.subscribe( user => {
+      this.user = user;
+    })
 
-  }
-
-  onSubmit() {
-    this.toggleButton = false;
   }
 
 }

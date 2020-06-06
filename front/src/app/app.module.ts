@@ -96,7 +96,8 @@ const routes = [{path: 'registrationPage', component: RegistrationPageComponent}
               AuthenticationService,
               ProductHTTPService,
               UserHttpService,
-              UtilService
+              UtilService,
+              LoginPageComponent
   ],
   bootstrap: [AppComponent]
 })

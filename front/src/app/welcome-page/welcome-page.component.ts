@@ -2,6 +2,8 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ProductHTTPService} from "../services/product-http.service";
 import {Product} from "../model/product";
 import {Router} from "@angular/router";
+import {UserHttpService} from "../services/user-http.service";
+import {User} from "../model/user";
 
 
 @Component({
@@ -11,10 +13,16 @@ import {Router} from "@angular/router";
 })
 export class WelcomePageComponent implements OnInit {
 
+  currentUser: User;
   public products: Product[] = [];
 
   constructor(private productHTTPService: ProductHTTPService,
-              private router: Router) { }
+              private userHttpService: UserHttpService,
+              private router: Router) {
+
+    this.userHttpService.currentUser.subscribe(x => this.currentUser = x);
+
+  }
 
   ngOnInit() {
     this.getAllProducts();

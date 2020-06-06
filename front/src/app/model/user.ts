@@ -16,9 +16,12 @@ export class User {
   private _createdOn: string;
   // tslint:disable-next-line:variable-name
   private _updatedOn: string;
+  // tslint:disable-next-line:variable-name
+  private _token?: string;
 
   // tslint:disable-next-line:max-line-length
-  constructor(id: number, name: string, email: string, password: string, phone: string, area: string, createdOn: string, updatedOn: string) {
+  constructor(id: number, name: string, email: string, password: string, phone: string,
+              area: string, createdOn: string, updatedOn: string, token: string) {
     this._id = id;
     this._name = name;
     this._email = email;
@@ -27,8 +30,17 @@ export class User {
     this._area = area;
     this._createdOn = createdOn;
     this._updatedOn = updatedOn;
+    this._token = token;
   }
 
+
+  get token(): string {
+    return this._token;
+  }
+
+  set token(value: string) {
+    this._token = value;
+  }
 
   get id(): number {
     return this._id;

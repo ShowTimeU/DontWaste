@@ -18,4 +18,11 @@ public class UserResponse {
     private String phone;
     private String area;
 
+    public String toString() {
+        String outputString = String.format("{\"username\": \"%s\", \"email\": \"%s\"}",
+                                    this.getName(),
+                                    this.getEmail());
+        return outputString;
+    }
+
 }

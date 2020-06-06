@@ -1,9 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, HostListener, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {MatDialog} from '@angular/material/dialog';
 import {Subscription} from "rxjs";
 import {UserHttpService} from "../../services/user-http.service";
 import {UtilService} from "../../services/util.service";
+import {ActivatedRoute, Router} from "@angular/router";
+import {first} from "rxjs/operators";
+import {NavigationComponent} from "../../navigation/navigation.component";
+import {Button} from "@material-ui/core";
 
 
 @Component({
@@ -13,51 +17,55 @@ import {UtilService} from "../../services/util.service";
 })
 export class LoginPageComponent implements OnInit {
 
-  signIn = true;
+  returnUrl: string;
   loginSubscription: Subscription;
 
-  loginFC = new FormControl('',
+  emailFC = new FormControl('',
     [Validators.required]);
   passwordFC = new FormControl('',
     [Validators.required]);
 
   formGroup = new FormGroup( {
-    email: this.loginFC,
+    email: this.emailFC,
     password: this.passwordFC
   });
 
 
+
   constructor(public dialog: MatDialog,
               private http: UserHttpService,
-              private util: UtilService) { }
+              private util: UtilService,
+              private router: Router,
+              private route: ActivatedRoute) {
 
-  ngOnInit() {
+    if (this.http.currentUserValue) {
+      this.router.navigate(['/']);
+    }
   }
 
+  ngOnInit() {
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+  }
+
+  @HostListener('onSubmit')
   onSubmit() {
     if (this.formGroup.invalid) {
       return;
     } else {
-      this.sendAuthInfo(this.loginFC.value);
-    }
-  }
-
-  private sendAuthInfo(info) {
-    if (this.signIn) {
-      this.loginSubscription = this.http.getUserByEmail(info).subscribe(
-        (result) => {
-          localStorage.setItem('/mainProductPage', (result as any).token);
-        },
-        (error) => {
-          console.log(error);
-          this.util.snack('Wrong Login Or Password!');
-        }
-      );
+      this.http.getUserByEmail(this.emailFC.value, this.passwordFC.value).pipe(
+        first()).subscribe(data => {
+          this.router.navigate(['/']);
+          console.log(data);
+          this.dialog.closeAll();
+      },
+        error => {
+          error = this.util.snack('Wrong Login Or Password!');
+        })
     }
   }
 
   getLoginError() {
-    return this.util.getRequiredPatternError(this.loginFC, 'empty login', 'not valid email');
+    return this.util.getRequiredPatternError(this.emailFC, 'empty login', 'not valid email');
   }
 
   getPasswordError() {

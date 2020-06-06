@@ -1,7 +1,6 @@
 package com.dontwaste.controller;
 
 
-import com.dontwaste.model.customer.entity.user.UserEntity;
 import com.dontwaste.model.customer.web.user.create.request.UserCreateRequest;
 import com.dontwaste.model.customer.web.user.login.UserLoginRequest;
 import com.dontwaste.model.customer.web.user.response.UserResponse;
@@ -29,6 +28,17 @@ public class UserController {
     @PostMapping(value = "/login")
     public UserResponse getUserForLogin(@RequestBody UserLoginRequest userLoginRequest){
         return userService.getUserForLogin(userLoginRequest);
+    }
+
+    @CrossOrigin
+    @PostMapping(value = "/login1")
+    public String getTokenTest(@RequestBody UserLoginRequest userLoginRequest){
+        UserResponse usr = userService.getUserForLogin(userLoginRequest);
+        String respString = String.format("{\"%s\": \"%s\", \"name\": \"%s\", \"email\": \"%s\"}",
+                                            "token",
+                                            "1232138912498745sakadhwqejhq897213912874",
+                                            "pisss", "off@shit.on.you");
+        return respString;
     }
 
 }
