@@ -14,8 +14,8 @@ public class UserResponse {
     private LocalDateTime updatedOn;
     private String name;
     private String email;
-    private String password;
     private String phone;
     private String area;
+    private String secToken;
 
 }

@@ -4,10 +4,12 @@ import com.dontwaste.model.admin.request.ProductCreationRequest;
 import com.dontwaste.model.customer.entity.product.ProductEntity;
 import org.springframework.stereotype.Component;
 
+import java.io.IOException;
+
 @Component
 public class ProductRequestConverter {
 
-    public ProductEntity converterToEntity(ProductCreationRequest productCreationRequest){
+    public ProductEntity converterToEntity(ProductCreationRequest productCreationRequest) {
         return ProductEntity.builder()
             .productName(productCreationRequest.getProductName())
             .description(productCreationRequest.getDescription())

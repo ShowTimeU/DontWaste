@@ -7,6 +7,7 @@ import org.springframework.boot.context.properties.bind.DefaultValue;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Lob;
 import javax.persistence.Table;
 
 @AllArgsConstructor
@@ -22,6 +23,7 @@ public class ProductEntity extends BaseDate {
     @Column(name = "DESCRIPTION", nullable = false)
     @Length(max = 500)
     private String description;
+
 
     @Column(name = "IMAGE", nullable = false)
     @Length(max = 2600)

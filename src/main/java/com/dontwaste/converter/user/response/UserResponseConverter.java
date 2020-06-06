@@ -14,9 +14,9 @@ public class UserResponseConverter {
                 .updatedOn(userEntity.getUpdatedOn())
                 .name(userEntity.getName())
                 .email(userEntity.getEmail())
-                .password(userEntity.getPassword())
                 .phone(userEntity.getPhone())
                 .area(userEntity.getArea())
+                .secToken(userEntity.getSecToken())
                 .build();
     }
 

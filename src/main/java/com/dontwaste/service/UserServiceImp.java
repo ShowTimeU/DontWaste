@@ -7,6 +7,7 @@ import com.dontwaste.model.customer.web.user.create.request.UserCreateRequest;
 import com.dontwaste.model.customer.web.user.login.UserLoginRequest;
 import com.dontwaste.model.customer.web.user.response.UserResponse;
 import com.dontwaste.repository.UserRepository;
+import com.sun.xml.bind.v2.TODO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +22,9 @@ public class UserServiceImp implements UserService{
 
     @Autowired
     UserResponseConverter userResponseConverter;
+
+    @Autowired
+    SessionService sessionService;
 
     @Override
     public UserResponse createUser(UserCreateRequest userCreateRequest) {
@@ -38,8 +42,20 @@ public class UserServiceImp implements UserService{
     @Override
     public UserResponse getUserForLogin(UserLoginRequest userLoginRequest) {
         UserEntity user = userRepository.findByEmail(userLoginRequest.getEmail());
-
-        return userResponseConverter.convertUserToWeb(user);
+        if(user==null){
+            return new UserResponse();
+        }
+        UserResponse usrConver = userResponseConverter.convertUserToWeb(user);
+        String sessionID = usrConver.getSecToken();
+//        TODO: FIX IT ALL
+        while (true) {
+            Boolean saveSuccess = sessionService.addSession(sessionID, user);
+            if (saveSuccess) {
+                return usrConver;
+            } else {
+                usrConver.setSecToken(usrConver.getSecToken() + "1");
+            }
+        }
     }
 
 
