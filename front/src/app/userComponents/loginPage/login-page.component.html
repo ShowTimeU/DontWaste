@@ -11,7 +11,7 @@
       <input type="password" matInput placeholder="Password" [formControl]="passwordFC" required>
       <mat-error>{{getPasswordError()}}</mat-error>
     </mat-form-field>
-    <div><button class="button" mat-raised-button color="primary" type="submit" [disabled]="!formGroup.valid" > Sign In </button></div><br/>
+    <div><button class="button" mat-raised-button color="primary" type="submit" [disabled]="!formGroup.valid" *ngIf="signIn"> Sign In </button></div><br/>
   </form>
 
   <h2 class="customer"><span> New customer? </span></h2>

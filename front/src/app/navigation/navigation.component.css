@@ -32,6 +32,10 @@ mat-toolbar {
   position: absolute;
   right: 5%;
 }
+.logoutBtn {
+  position: absolute;
+  right: 10%;
+}
 .hamBtn {
   position: absolute;
   left: 2%;
@@ -39,5 +43,5 @@ mat-toolbar {
 }
 .cartBtn {
   position: absolute;
-  right: 11%;
+  right: 15%;
 }

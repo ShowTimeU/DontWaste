@@ -21,13 +21,8 @@ export class UtilService {
     this.matSnackBar.open(msg, null, {duration: 3000, panelClass: 'snack'});
   }
 
-  signIn = false;
 
   @Output() change: EventEmitter<boolean> = new EventEmitter();
 
-  toggle() {
-    this.signIn = !this.signIn;
-    this.change.emit(this.signIn);
-  }
 
 }

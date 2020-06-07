@@ -17,6 +17,7 @@ import {Button} from "@material-ui/core";
 })
 export class LoginPageComponent implements OnInit {
 
+  @Output() checkIn;
   returnUrl: string;
   loginSubscription: Subscription;
 
@@ -29,6 +30,7 @@ export class LoginPageComponent implements OnInit {
     email: this.emailFC,
     password: this.passwordFC
   });
+  signIn = true;
 
 
 
@@ -47,7 +49,6 @@ export class LoginPageComponent implements OnInit {
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
-  @HostListener('onSubmit')
   onSubmit() {
     if (this.formGroup.invalid) {
       return;
@@ -57,6 +58,7 @@ export class LoginPageComponent implements OnInit {
           this.router.navigate(['/']);
           console.log(data);
           this.dialog.closeAll();
+
       },
         error => {
           error = this.util.snack('Wrong Login Or Password!');
