@@ -41,13 +41,14 @@ import {AuthenticationService} from "./services/authentication.service";
 import {ProductHTTPService} from "./services/product-http.service";
 import {UserHttpService} from "./services/user-http.service";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
+import {MatTooltipModule} from "@angular/material/tooltip";
 
 const routes = [{path: 'registrationPage', component: RegistrationPageComponent},
-                {path: '', component: WelcomePageComponent},
-                {path: 'loginPage', component: LoginPageComponent},
-                {path: 'mainProductPage', component: MainProductPageComponent},
-                {path: 'personalAreaPage', component: PersonalAreaComponent},
-                {path: 'payPage', component: PayPageComponent}];
+  {path: '', component: WelcomePageComponent},
+  {path: 'loginPage', component: LoginPageComponent},
+  {path: 'mainProductPage', component: MainProductPageComponent},
+  {path: 'personalAreaPage', component: PersonalAreaComponent},
+  {path: 'payPage', component: PayPageComponent}];
 
 
 @NgModule({
@@ -67,36 +68,38 @@ const routes = [{path: 'registrationPage', component: RegistrationPageComponent}
     CheckoutDialogComponent,
     PayPageComponent
   ],
-    imports: [
-        BrowserModule,
-        BrowserAnimationsModule,
-        MatToolbarModule,
-        MatMenuModule,
-        MatIconModule,
-        MatButtonModule,
-        MatCardModule,
-        MatFormFieldModule,
-        MatProgressSpinnerModule,
-        FormsModule,
-        MatInputModule,
-        MatSelectModule,
-        MatCheckboxModule,
-        RouterModule.forRoot(routes),
-        MatSidenavModule,
-        MatListModule,
-        MatDialogModule,
-        HttpClientModule,
-        ReactiveFormsModule,
-        MatChipsModule,
-        MatTableModule,
-        MatProgressBarModule,
-        MatSnackBarModule
-    ],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatMenuModule,
+    MatIconModule,
+    MatButtonModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatProgressSpinnerModule,
+    FormsModule,
+    MatInputModule,
+    MatSelectModule,
+    MatCheckboxModule,
+    RouterModule.forRoot(routes),
+    MatSidenavModule,
+    MatListModule,
+    MatDialogModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    MatChipsModule,
+    MatTableModule,
+    MatProgressBarModule,
+    MatSnackBarModule,
+    MatTooltipModule
+  ],
   providers: [AlertService,
-              AuthenticationService,
-              ProductHTTPService,
-              UserHttpService,
-              UtilService
+    AuthenticationService,
+    ProductHTTPService,
+    UserHttpService,
+    UtilService,
+    LoginPageComponent
   ],
   bootstrap: [AppComponent]
 })

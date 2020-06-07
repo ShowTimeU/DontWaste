@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable, Output, EventEmitter} from '@angular/core';
 import {MatSnackBar, MatSnackBarModule} from "@angular/material/snack-bar";
 import {UserHttpService} from "./user-http.service";
 import {FormControl} from "@angular/forms";
@@ -20,5 +20,8 @@ export class UtilService {
   snack(msg) {
     this.matSnackBar.open(msg, null, {duration: 3000, panelClass: 'snack'});
   }
+
+
+  @Output() change: EventEmitter<boolean> = new EventEmitter();
 
 }

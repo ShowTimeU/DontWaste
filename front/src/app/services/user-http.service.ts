@@ -1,20 +1,42 @@
 import { Injectable } from '@angular/core';
-import {Observable} from "rxjs";
+import {BehaviorSubject, Observable} from "rxjs";
 import {User} from "../model/user";
 import {HttpClient, HttpParams} from "@angular/common/http";
+import {map} from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserHttpService {
 
-  constructor(private httpClient: HttpClient) { }
+  private currentUserSubject: BehaviorSubject<User>;
+  public currentUser: Observable<User>;
+
+  constructor(private httpClient: HttpClient) {
+    this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(sessionStorage.getItem('currentUser')));
+    this.currentUser = this.currentUserSubject.asObservable();
+  }
 
   createUser(user: User): Observable<User> {
     return this.httpClient.post<User>('/api/createUser', user);
   }
 
-  getUserByEmail(email): Observable<User> {
-    return this.httpClient.post<User>('/api/getUserByEmail', email);
+  public get currentUserValue(): User {
+    return this.currentUserSubject.value;
+  }
+
+  logout() {
+    // remove user from session storage to log user out
+    sessionStorage.removeItem('currentUser');
+    this.currentUserSubject.next(null);
+  }
+
+  getUserByEmail(email, password): Observable<User> {
+    return this.httpClient.post<User>('http://localhost:8080/api/login', { email, password })
+      .pipe(map(user => {
+        sessionStorage.setItem('currentUser', JSON.stringify(user));
+        this.currentUserSubject.next(user);
+        return user;
+      }));
   }
 }

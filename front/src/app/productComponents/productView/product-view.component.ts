@@ -20,6 +20,7 @@ export class ProductViewComponent implements OnInit {
   @Input() product: any;
   @Output() productAdded = new EventEmitter();
   public products: Product[] = [];
+  productCartList: [];
   selectedValue: string;
   areas: Area[] = [
     {value: 'All', viewValue: 'All Districts'},

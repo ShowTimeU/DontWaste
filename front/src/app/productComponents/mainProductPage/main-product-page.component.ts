@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
 import {ProductRegistrationComponent} from "../productRegistration/product-registration.component";
 import {Product} from "../../model/product";
+import {ProductHTTPService} from "../../services/product-http.service";
 
 
 @Component({
@@ -11,9 +12,11 @@ import {Product} from "../../model/product";
 })
 export class MainProductPageComponent implements OnInit{
 
-  cartProductList = [];
+  cartProductList:any = [];
   productList: Product[];
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog,
+              private productHTTPService: ProductHTTPService) {
+  }
 
   ngOnInit(): void {
   }
@@ -21,13 +24,13 @@ export class MainProductPageComponent implements OnInit{
   addProductToCart(product) {
     const productExistInCart = this.cartProductList.find(({productName}) => productName === product.productName);
     if (!productExistInCart) {
-      this.cartProductList.push({...product, num:1});
-      return;
-    }
+        this.cartProductList.push({...product, num:1});
+      }
     else {
       productExistInCart.num += 1;
     }
   }
+
 
   removeProduct(product) {
     this.cartProductList = this.cartProductList.filter(({productName}) => productName !== product.productName)
