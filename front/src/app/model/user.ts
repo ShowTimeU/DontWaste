@@ -3,7 +3,7 @@ export class User {
   // tslint:disable-next-line:variable-name
   private _id: number;
   // tslint:disable-next-line:variable-name
-  private _name: string;
+  private _name = '';
   // tslint:disable-next-line:variable-name
   private _email: string;
   // tslint:disable-next-line:variable-name
