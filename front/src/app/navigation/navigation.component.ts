@@ -1,12 +1,12 @@
-import {Component, HostBinding, Output, ViewChild} from '@angular/core';
+import {AfterViewChecked, AfterViewInit, Component, HostBinding, Output, ViewChild} from '@angular/core';
 import {MatSidenav} from '@angular/material/sidenav';
 import {MatDialog} from '@angular/material/dialog';
 import {LoginPageComponent} from '../userComponents/loginPage/login-page.component';
-import {UserHttpService} from "../services/user-http.service";
-import {Router} from "@angular/router";
-import {UtilService} from "../services/util.service";
-import {User} from "../model/user";
-import {Subscription} from "rxjs";
+import {UserHttpService} from '../services/user-http.service';
+import {Router} from '@angular/router';
+import {UtilService} from '../services/util.service';
+import {User} from '../model/user';
+import {Subscription} from 'rxjs';
 
 
 
@@ -16,8 +16,9 @@ import {Subscription} from "rxjs";
   styleUrls: ['./navigation.component.css']
 })
 
-export class NavigationComponent {
+export class NavigationComponent implements AfterViewInit{
 
+  btn = true;
   reason = '';
   @ViewChild('sidenav') sidenav: MatSidenav;
   currentUser: User;
@@ -32,7 +33,15 @@ export class NavigationComponent {
               private http: UserHttpService,
               private router: Router,
               private util: UtilService) {
-    this.currentUserSubscription = this.http.currentUser.subscribe(user => {this.currentUser = user});
+    this.currentUserSubscription = this.http.currentUser.subscribe(user => {
+      this.currentUser = user;
+      if (user.name.length > 0){
+        this.btn = false;
+      }});
+
+  }
+
+  ngAfterViewInit(): void {
   }
 
 
@@ -46,6 +55,8 @@ export class NavigationComponent {
     this.http.logout();
     this.router.navigate(['/']);
     window.location.reload();
+    this.btn = true;
   }
+
 
 }
