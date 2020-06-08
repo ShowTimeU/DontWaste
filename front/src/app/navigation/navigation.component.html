@@ -19,11 +19,11 @@
 
       <h2 *ngIf="currentUser"> Hello, {{currentUser.name}} </h2>
 
-      <button mat-button color="primary" class="cartBtn"><mat-icon>shopping_cart</mat-icon></button>
+      <button mat-button color="primary" class="cartBtn" *ngIf="!btn"><mat-icon>shopping_cart</mat-icon></button>
 
-      <button mat-raised-button (click)="signIn()" color="primary" class="loginBtn" > Sign In </button>
+      <button mat-raised-button (click)="signIn()" color="primary" class="loginBtn" *ngIf="btn"> Sign In </button>
 
-      <button mat-raised-button (click)="logOut()" color="primary" class="logoutBtn" > Log Out </button>
+      <button mat-raised-button (click)="logOut()" color="primary" class="loginBtn" *ngIf="!btn"> Log Out </button>
 
       <button mat-icon-button (click)="sidenav.open()" class="hamBtn" ><mat-icon>menu</mat-icon></button>
     </mat-toolbar>
