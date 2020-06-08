@@ -57,11 +57,11 @@ export class LoginPageComponent implements OnInit {
           this.router.navigate(['/']);
           console.log(data);
           this.dialog.closeAll();
-
+          window.location.reload();
         },
         error => {
           error = this.util.snack('Wrong Login Or Password!');
-        })
+        });
     }
   }
 
