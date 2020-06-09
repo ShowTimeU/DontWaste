@@ -11,6 +11,8 @@ public interface ProductService {
     void deleteProduct(Long id);
     List<ProductEntity> getAllProducts();
     List<ProductEntity> getProductsByArea(String area);
+    List<ProductEntity> getAllProductWithPriceBetween(Double min, Double max);
+    List<ProductEntity> getAllProductsByNameLike(String name);
 
 
 

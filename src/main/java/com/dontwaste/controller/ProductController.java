@@ -37,4 +37,15 @@ public class ProductController {
         return productService.getProductsByArea(area);
     }
 
+    @GetMapping(value = "/getProductsByNameLike")
+    public List<ProductEntity> getProductsByNameLike(@RequestParam(name = "name") String name){
+        return productService.getAllProductsByNameLike(name);
+    }
+
+    @GetMapping(value = "/getProductsWithPriceBetween")
+    public List<ProductEntity> getProductsWithPriceBetween(@RequestParam(name = "minPrice") Double min,
+                                                            @RequestParam(name = "maxPrice") Double max){
+        return productService.getAllProductWithPriceBetween(min, max);
+    }
+
 }

@@ -42,6 +42,16 @@ public class ProductServiceImp implements ProductService  {
     }
 
     @Override
+    public List<ProductEntity> getAllProductWithPriceBetween(Double min, Double max) {
+        return productRepository.getAllProductsWithPriceBetween(min, max);
+    }
+
+    @Override
+    public List<ProductEntity> getAllProductsByNameLike(String name) {
+        return productRepository.getAllProductsByNameLike(name);
+    }
+
+    @Override
     public List<ProductEntity> getProductsByArea(String area) {
         return productRepository.findAllByArea(area);
     }
