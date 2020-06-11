@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { WelcomePageComponent } from './welcome-page/welcome-page.component';
+import { WelcomePageComponent } from './welcomePage/welcome-page.component';
 import { LoginPageComponent } from './userComponents/loginPage/login-page.component';
 import { RegistrationPageComponent } from './userComponents/registrationPage/registration-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -27,8 +27,6 @@ import {PersonalAreaComponent} from './userComponents/personalArea/personal-area
 import {HttpClientModule} from '@angular/common/http';
 import {MatChipsModule} from "@angular/material/chips";
 import { ShoppingCartComponent } from './productComponents/shoppingCart/shopping-cart.component';
-import { CartProductComponent } from './productComponents/shoppingCartProduct/cart-product.component';
-import { ProductViewComponent } from './productComponents/productView/product-view.component';
 import { ProductListComponent } from './productComponents/productList/product-list.component';
 import {MatTableModule} from "@angular/material/table";
 import {ProductRegistrationComponent} from "./productComponents/productRegistration/product-registration.component";
@@ -42,6 +40,9 @@ import {ProductHTTPService} from "./services/product-http.service";
 import {UserHttpService} from "./services/user-http.service";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {MatTooltipModule} from "@angular/material/tooltip";
+import { NotFoundComponent } from './notFound/not-found.component';
+import {PathResolveService} from "./services/path-resolve.service";
+
 
 const routes = [{path: 'registrationPage', component: RegistrationPageComponent},
   {path: '', component: WelcomePageComponent},
@@ -62,11 +63,10 @@ const routes = [{path: 'registrationPage', component: RegistrationPageComponent}
     PersonalAreaComponent,
     ProductRegistrationComponent,
     ShoppingCartComponent,
-    CartProductComponent,
-    ProductViewComponent,
     ProductListComponent,
     CheckoutDialogComponent,
-    PayPageComponent
+    PayPageComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -82,7 +82,7 @@ const routes = [{path: 'registrationPage', component: RegistrationPageComponent}
     MatInputModule,
     MatSelectModule,
     MatCheckboxModule,
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes, {useHash: true}),
     MatSidenavModule,
     MatListModule,
     MatDialogModule,
@@ -99,7 +99,8 @@ const routes = [{path: 'registrationPage', component: RegistrationPageComponent}
     ProductHTTPService,
     UserHttpService,
     UtilService,
-    LoginPageComponent
+    LoginPageComponent,
+    PathResolveService
   ],
   bootstrap: [AppComponent]
 })

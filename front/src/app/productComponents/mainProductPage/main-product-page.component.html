@@ -1,8 +1,8 @@
 <button mat-raised-button (click)="openDialog()" color="primary" class="menuBtn"> Add New Product </button>
 
 <div class="container">
-   <product-list (productAdded)="addProductToCart($event)" [products]="productList" class="productList"></product-list>
-   <shopping-cart [products]="cartProductList" (productRemoved)="removeProduct($event)" class="shoppingCart"></shopping-cart>
+   <product-list class="productList"></product-list>
+   <shopping-cart class="shoppingCart"></shopping-cart>
 </div>
 
 

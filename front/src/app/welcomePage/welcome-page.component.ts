@@ -19,11 +19,9 @@ export class WelcomePageComponent implements OnInit {
   constructor(private productHTTPService: ProductHTTPService,
               private userHttpService: UserHttpService,
               private router: Router) {
-
     this.userHttpService.currentUser.subscribe(x => this.currentUser = x);
 
   }
-
 
   ngOnInit() {
     this.getAllProducts();

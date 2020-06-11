@@ -1,0 +1,48 @@
+.productCards {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.card {
+  width: 400px;
+  margin: 2% 11px 2% 11px;
+}
+.header-image {
+  background-image: url('https://media-cdn.tripadvisor.com/media/photo-s/10/2d/f6/bd/japanika.jpg');
+  background-size: cover;
+  width: 80px;
+  height: 80px;
+}
+mat-form-field {
+  font-size: 16px;
+}
+mat-card-header {
+  height: 70px;
+}
+
+.filterContainer {
+  margin: 20px auto 0;
+}
+img {
+  height: 265px;
+}
+.price {
+  display: flex;
+  font-size: 16px;
+  margin-bottom: 40px;
+}
+.newPrice {
+  left: 51%;
+  position: absolute;
+}
+.oldPrice {
+  position: absolute;
+  right: 51%;
+  text-decoration: line-through;
+}
+
+
+/*----------------------------------ANIMATION----------------------------------*/
+
+
+

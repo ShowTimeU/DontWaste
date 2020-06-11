@@ -1,4 +1,4 @@
-import {AfterViewChecked, AfterViewInit, Component, HostBinding, Output, ViewChild} from '@angular/core';
+import {AfterViewChecked, AfterViewInit, Component, HostBinding, OnInit, Output, ViewChild} from '@angular/core';
 import {MatSidenav} from '@angular/material/sidenav';
 import {MatDialog} from '@angular/material/dialog';
 import {LoginPageComponent} from '../userComponents/loginPage/login-page.component';
@@ -16,7 +16,7 @@ import {Subscription} from 'rxjs';
   styleUrls: ['./navigation.component.css']
 })
 
-export class NavigationComponent implements AfterViewInit{
+export class NavigationComponent {
 
   btn = true;
   reason = '';
@@ -24,26 +24,15 @@ export class NavigationComponent implements AfterViewInit{
   currentUser: User;
   currentUserSubscription: Subscription;
 
-  close(reason: string) {
-    this.reason = reason;
-    this.sidenav.close();
-  }
-
   constructor(public dialog: MatDialog,
               private http: UserHttpService,
-              private router: Router,
-              private util: UtilService) {
+              private router: Router) {
     this.currentUserSubscription = this.http.currentUser.subscribe(user => {
       this.currentUser = user;
-      if (user.name.length > 0){
+      if (this.currentUser.name.length > 0){
         this.btn = false;
       }});
-
   }
-
-  ngAfterViewInit(): void {
-  }
-
 
   signIn() {
     this.dialog.open(LoginPageComponent, {
@@ -58,5 +47,9 @@ export class NavigationComponent implements AfterViewInit{
     this.btn = true;
   }
 
+  close(reason: string) {
+    this.reason = reason;
+    this.sidenav.close();
+  }
 
 }
