@@ -24,4 +24,10 @@ export class ProductHTTPService {
     return this.httpClient.get<Product[]>('/api/getProductsByArea', {params: params});
   }
 
+  getProductsByNameLike(name): Observable<Product[]> {
+    let params = new HttpParams();
+    params = params.set('name', name);
+    return this.httpClient.get<Product[]>('/api/getProductsByNameLike', {params: params});
+  }
+
 }

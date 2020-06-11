@@ -1,8 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import {Product} from "../../model/product";
 import {ProductHTTPService} from "../../services/product-http.service";
-import {Observable} from "rxjs";
-
 
 interface Area {
   value: string;
@@ -40,9 +38,11 @@ export class ProductListComponent {
       this.products = data;
     });
   }
-
   getProductsByArea() {
     return this.productHTTPService.getProductsByArea(this.selectedValue).subscribe(data => this.products = data);
+  }
+  getProductsByNameLike() {
+    this.productHTTPService.getProductsByNameLike(this.selectedValue).subscribe(data => this.products = data);
   }
 
 
@@ -53,4 +53,7 @@ export class ProductListComponent {
     return this.getProductsByArea();
   }
 
+  onName() {
+    console.log(this.getProductsByNameLike());
+  }
 }
