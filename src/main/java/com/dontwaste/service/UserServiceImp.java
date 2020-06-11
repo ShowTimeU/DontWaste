@@ -3,11 +3,10 @@ package com.dontwaste.service;
 import com.dontwaste.converter.user.request.UserRequestConverter;
 import com.dontwaste.converter.user.response.UserResponseConverter;
 import com.dontwaste.model.customer.entity.user.UserEntity;
-import com.dontwaste.model.customer.web.user.create.request.UserCreateRequest;
+import com.dontwaste.model.customer.web.user.create.UserCreateRequest;
 import com.dontwaste.model.customer.web.user.login.UserLoginRequest;
 import com.dontwaste.model.customer.web.user.response.UserResponse;
 import com.dontwaste.repository.UserRepository;
-import com.sun.xml.bind.v2.TODO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
