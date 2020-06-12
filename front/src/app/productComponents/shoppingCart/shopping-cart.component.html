@@ -1,35 +1,20 @@
 <mat-card>
-<h1 class="title"> Your Shopping Cart </h1><br/>
+  <h1 *ngIf="cartItems.length === 0"> Your Cart Is Empty </h1>
 
-<div>
-  <table *ngFor="let product of products" mat-table>
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef> Name: <b>{{product.id}} </b>
-      </th>
-    </ng-container>
+  <div *ngIf="cartItems.length > 0"> <h1>Your Chosen Products</h1>
+    <app-cart-item *ngFor="let item of cartItems"
+                   [cartItem] = "item"
+                   (productRemoved)="removeProduct($event)">
+    </app-cart-item>
+  </div>
 
-    <ng-container matColumnDef="price">
-      <th mat-header-cell *matHeaderCellDef> Price: {{product.price}}₪ </th>
-    </ng-container>
+  <div class="totalPrice" *ngIf="cartItems.length">
+    <button mat-raised-button color="accent" role="button" *ngIf="cartItems.length" [disabled]="cartItems.length < 1" (click)="checkout()">
+      <mat-icon>shopping_cart</mat-icon> Checkout {{ calcTotal() }} Item{{ cartItems.length > 1 ? 's' : '' }}</button><br/>
 
-    <ng-container matColumnDef="quantity">
-      <th mat-header-cell *matHeaderCellDef>
-        Quantity: <input matInput class="input" type="number" [(ngModel)]="product.quantity" min="1" [max]="product.quantity"
-                         oninput="validity.valid||(value='');" />
-      </th>
-    </ng-container>
+    <h2 class="totalPrice"> Total: {{calcTotalPrice()}} </h2>
+  </div>
 
-    <ng-container matColumnDef="cancel" class="cancelBtn">
-      <th mat-header-cell *matHeaderCellDef>
-        <button style="float: right;" mat-icon-button (click)="product.id"><mat-icon>cancel</mat-icon></button>
-      </th>
-    </ng-container>
-
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table><br/>
-
-</div>
 </mat-card>
 
 

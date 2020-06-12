@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import {Component, Input, Output, EventEmitter, OnInit} from '@angular/core';
 import {Product} from "../../model/product";
 import {ProductHTTPService} from "../../services/product-http.service";
 
@@ -11,9 +11,10 @@ interface Area {
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css']
 })
-export class ProductListComponent {
-
+export class ProductListComponent implements OnInit{
+  productList: Product[] = [];
   selectedValue: string;
+  searchText: '';
   areas: Area[] = [
     {value: 'All', viewValue: 'All Districts'},
     {value: 'Jerusalem', viewValue: 'Jerusalem District'},
@@ -24,7 +25,6 @@ export class ProductListComponent {
     {value: 'South', viewValue: 'Southern District'},
     {value: 'Judea and Samaria Area', viewValue: 'Judea and Samaria Area'}
   ];
-  public products: Product[];
 
   constructor(private productHTTPService: ProductHTTPService) {
   }
@@ -34,17 +34,12 @@ export class ProductListComponent {
   }
 
   getAllProducts() {
-    return this.productHTTPService.getAllProducts().subscribe(data => {
-      this.products = data;
-    });
-  }
-  getProductsByArea() {
-    return this.productHTTPService.getProductsByArea(this.selectedValue).subscribe(data => this.products = data);
-  }
-  getProductsByNameLike() {
-    this.productHTTPService.getProductsByNameLike(this.selectedValue).subscribe(data => this.products = data);
+    return this.productHTTPService.getAllProducts().subscribe(data => this.productList = data);
   }
 
+  getProductsByArea() {
+    return this.productHTTPService.getProductsByArea(this.selectedValue).subscribe(data => this.productList = data);
+  }
 
   onArea() {
     if (this.selectedValue == 'All') {
@@ -53,7 +48,4 @@ export class ProductListComponent {
     return this.getProductsByArea();
   }
 
-  onName() {
-    console.log(this.getProductsByNameLike());
-  }
 }

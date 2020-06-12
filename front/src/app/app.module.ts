@@ -35,13 +35,16 @@ import { PayPageComponent } from './payPage/pay-page.component';
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {UtilService} from "./services/util.service";
 import {AlertService} from "./services/alert.service";
-import {AuthenticationService} from "./services/authentication.service";
+import {MessengerService} from "./services/messenger.service";
 import {ProductHTTPService} from "./services/product-http.service";
 import {UserHttpService} from "./services/user-http.service";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {MatTooltipModule} from "@angular/material/tooltip";
 import { NotFoundComponent } from './notFound/not-found.component';
 import {PathResolveService} from "./services/path-resolve.service";
+import { FilterPipe } from './filter.pipe';
+import {ProductItemComponent} from "./productComponents/productItem/product-item.component";
+import {CartItemComponent} from "./productComponents/cartItem/cart-item.component";
 
 
 const routes = [{path: 'registrationPage', component: RegistrationPageComponent},
@@ -53,21 +56,25 @@ const routes = [{path: 'registrationPage', component: RegistrationPageComponent}
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    WelcomePageComponent,
-    LoginPageComponent,
-    RegistrationPageComponent,
-    MainProductPageComponent,
-    NavigationComponent,
-    PersonalAreaComponent,
-    ProductRegistrationComponent,
-    ShoppingCartComponent,
-    ProductListComponent,
-    CheckoutDialogComponent,
-    PayPageComponent,
-    NotFoundComponent
-  ],
+    declarations: [
+        AppComponent,
+        WelcomePageComponent,
+        LoginPageComponent,
+        RegistrationPageComponent,
+        MainProductPageComponent,
+        NavigationComponent,
+        PersonalAreaComponent,
+        ProductRegistrationComponent,
+        ShoppingCartComponent,
+        ProductListComponent,
+        CheckoutDialogComponent,
+        PayPageComponent,
+        NotFoundComponent,
+        FilterPipe,
+        ProductItemComponent,
+        ProductItemComponent,
+        CartItemComponent
+    ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -95,12 +102,12 @@ const routes = [{path: 'registrationPage', component: RegistrationPageComponent}
     MatTooltipModule
   ],
   providers: [AlertService,
-    AuthenticationService,
     ProductHTTPService,
     UserHttpService,
     UtilService,
     LoginPageComponent,
-    PathResolveService
+    PathResolveService,
+    MessengerService
   ],
   bootstrap: [AppComponent]
 })

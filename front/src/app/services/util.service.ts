@@ -21,7 +21,6 @@ export class UtilService {
     this.matSnackBar.open(msg, null, {duration: 3000, panelClass: 'snack'});
   }
 
-
   @Output() change: EventEmitter<boolean> = new EventEmitter();
 
 }

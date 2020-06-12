@@ -55,7 +55,6 @@ export class LoginPageComponent implements OnInit {
       this.http.getUserByEmail(this.emailFC.value, this.passwordFC.value).pipe(
         first()).subscribe(data => {
           this.router.navigate(['/']);
-          console.log(data);
           this.dialog.closeAll();
           window.location.reload();
         },

@@ -16,7 +16,7 @@ import {Subscription} from 'rxjs';
   styleUrls: ['./navigation.component.css']
 })
 
-export class NavigationComponent {
+export class NavigationComponent implements OnInit{
 
   btn = true;
   reason = '';
@@ -26,12 +26,19 @@ export class NavigationComponent {
 
   constructor(public dialog: MatDialog,
               private http: UserHttpService,
-              private router: Router) {
+              private router: Router) { }
+
+  ngOnInit(): void {
+    this.userSubs();
+  }
+
+  userSubs() {
     this.currentUserSubscription = this.http.currentUser.subscribe(user => {
       this.currentUser = user;
-      if (this.currentUser.name.length > 0){
+      if(this.currentUser) {
         this.btn = false;
-      }});
+      }
+      });
   }
 
   signIn() {
@@ -51,5 +58,6 @@ export class NavigationComponent {
     this.reason = reason;
     this.sidenav.close();
   }
+
 
 }
