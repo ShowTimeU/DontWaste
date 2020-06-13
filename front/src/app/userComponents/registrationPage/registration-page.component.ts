@@ -63,7 +63,7 @@ export class RegistrationPageComponent implements OnInit {
         .subscribe(
           data => {
             this.alertService.success('Registration Successful', true);
-            this.router.navigate(['/mainProductPage']);
+            this.router.navigate(['']);
           },
           error => {
             this.alertService.error(error);

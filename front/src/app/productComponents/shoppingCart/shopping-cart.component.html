@@ -13,7 +13,7 @@
 
   <div class="totalPrice" *ngIf="cartItems.length">
     <button mat-raised-button color="accent" role="button" *ngIf="cartItems.length" [disabled]="cartItems.length < 1" (click)="checkout()">
-      <mat-icon>shopping_cart</mat-icon> Checkout {{ calcTotal() }} Item{{ cartItems.length > 1 ? 's' : '' }}</button><br/>
+      <mat-icon>shopping_cart</mat-icon> Checkout {{ calcTotal()-1 }} Item{{ cartItems.length > 1 ? 's' : '' }}</button><br/>
     <h2 class="totalPrice"> Total: {{calcTotalPrice()}} </h2>
   </div>
 

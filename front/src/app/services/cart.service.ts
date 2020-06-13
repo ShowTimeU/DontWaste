@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {CartItem} from "../model/cartItem";
-import {Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {Product} from "../model/product";
+import {Observable} from "rxjs";
 import {map} from "rxjs/operators";
 
 
@@ -46,5 +46,36 @@ export class CartService {
   removeProductsFromCart(product: Product) {
     return this.httpClient.delete('http://localhost:3000/cartList'+ '/' + product.id);
   }
+
+
+
+  //--------------------------------------------LocalStorage---------------------------------------------
+
+
+  // addProductToCart(product: Product) {
+  //   let cartItems: CartItem[] = [];
+  //   const a: string | any[] = localStorage.getItem("product") || [];
+  //   for(let item of a) {
+  //     cartItems.push(new CartItem(item.id, product));
+  //   }
+  //   return cartItems;
+  // }
+  //
+  // getCartItems(): Product[] {
+  //   return JSON.parse(localStorage.getItem("product")) || [];
+  // }
+  //
+  // removeProductsFromCart(product: Product) {
+  //   const products: Product[] = JSON.parse(localStorage.getItem("product"));
+  //
+  //   for (let i = 0; i < products.length; i++) {
+  //     if (products[i].id === product.id) {
+  //       products.splice(i, 1);
+  //       break;
+  //     }
+  //   }
+  //   // ReAdding the products after remove
+  //   localStorage.setItem("product", JSON.stringify(products));
+  // }
 
 }

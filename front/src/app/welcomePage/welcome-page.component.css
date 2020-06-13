@@ -1,3 +1,8 @@
 .productList {
-  width: 70%;
+  max-width: 70%;
+  overflow: auto;
+  wrap-option: wrap;
+  position: absolute;
+  top: 20%;
+  left: 15%;
 }

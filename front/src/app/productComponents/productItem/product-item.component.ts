@@ -6,6 +6,8 @@ import {CartService} from "../../services/cart.service";
 import {disableDebugTools} from "@angular/platform-browser";
 import {UserHttpService} from "../../services/user-http.service";
 
+
+
 @Component({
   selector: 'app-product-item',
   templateUrl: './product-item.component.html',
@@ -14,7 +16,6 @@ import {UserHttpService} from "../../services/user-http.service";
 export class ProductItemComponent implements OnInit {
 
   @Input() productItem: Product;
-
 
   constructor(private productHTTPService: ProductHTTPService,
               private msg: MessengerService,

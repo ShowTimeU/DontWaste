@@ -5,8 +5,6 @@ import {CheckoutDialogComponent} from "../checkoutDialog/checkout-dialog.compone
 import {MatDialog} from "@angular/material/dialog";
 import {CartService} from "../../services/cart.service";
 import {CartItem} from "../../model/cartItem";
-import {User} from "../../model/user";
-import {Observable, Subscription} from "rxjs";
 import {UserHttpService} from "../../services/user-http.service";
 
 @Component({
@@ -18,23 +16,18 @@ export class ShoppingCartComponent implements OnInit{
 
   @Input() cartItems = [];
   @Output() productRemoved = new EventEmitter();
+  count = 0;
 
   constructor(private msg: MessengerService,
               private dialog: MatDialog,
               private cartService: CartService,
-              private http: UserHttpService) { }
+              private http: UserHttpService) {}
 
   ngOnInit() {
     if(this.http.currentUserValue) {
       this.loadCartItems();
       this.handleSubscription();
     }
-  }
-
-  handleSubscription() {
-    this.msg.getMsg().subscribe((product: Product) => {
-      this.loadCartItems();
-    })
   }
 
   loadCartItems() {
@@ -46,12 +39,14 @@ export class ShoppingCartComponent implements OnInit{
 
   removeProduct(product) {
     this.cartService.removeProductsFromCart(product).subscribe(() => {
-      this.loadCartItems();
+      this.count = this.calcTotal()-1;
+      this.msg.sendNumber((this.count-1));
+      this.loadCartItems()
     })
   }
 
   calcTotalPrice() {
-    return this.cartItems.reduce((acc, prod) => acc+= (prod.price * prod.quantity) ,0);
+    return this.cartItems.reduce((acc, prod) => acc+= (prod.price * prod.quantity) ,1);
   }
 
   checkout() {
@@ -65,6 +60,16 @@ export class ShoppingCartComponent implements OnInit{
   }
 
   calcTotal() {
-    return this.cartItems.reduce((acc, prod) => acc+= prod.quantity ,0);
+    return this.cartItems.reduce((acc, prod) => acc+= prod.quantity,1);
+  }
+
+
+  handleSubscription(): any {
+    this.msg.getMsg().subscribe((product: Product) => {
+      this.loadCartItems();
+      this.count = this.calcTotal();
+      this.msg.sendNumber(this.count);
+      return this.count;
+      })
   }
 }

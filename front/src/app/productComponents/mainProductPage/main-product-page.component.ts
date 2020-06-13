@@ -17,8 +17,7 @@ export class MainProductPageComponent implements OnInit{
   cartProductList = [];
 
   constructor(public dialog: MatDialog,
-              private cartService: CartService,
-              private http: UserHttpService) {
+              private cartService: CartService) {
   }
 
   ngOnInit(): void {

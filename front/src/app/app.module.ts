@@ -46,7 +46,8 @@ import { FilterPipe } from './filter.pipe';
 import {ProductItemComponent} from "./productComponents/productItem/product-item.component";
 import {CartItemComponent} from "./productComponents/cartItem/cart-item.component";
 import {ShoppingCartModule} from "ng-shopping-cart";
-import { FiltersComponent } from './productComponents/filters/filters.component';
+import {MatBadgeModule} from "@angular/material/badge";
+import {MatExpansionModule} from "@angular/material/expansion";
 
 
 const routes = [{path: 'registrationPage', component: RegistrationPageComponent},
@@ -76,7 +77,6 @@ const routes = [{path: 'registrationPage', component: RegistrationPageComponent}
         ProductItemComponent,
         ProductItemComponent,
         CartItemComponent,
-        FiltersComponent
     ],
   imports: [
     BrowserModule,
@@ -103,7 +103,9 @@ const routes = [{path: 'registrationPage', component: RegistrationPageComponent}
     MatProgressBarModule,
     MatSnackBarModule,
     MatTooltipModule,
-    ShoppingCartModule
+    ShoppingCartModule,
+    MatBadgeModule,
+    MatExpansionModule
   ],
   providers: [AlertService,
     ProductHTTPService,

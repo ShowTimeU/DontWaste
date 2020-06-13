@@ -1,13 +1,16 @@
-import {AfterViewChecked, AfterViewInit, Component, HostBinding, OnInit, Output, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatSidenav} from '@angular/material/sidenav';
 import {MatDialog} from '@angular/material/dialog';
 import {LoginPageComponent} from '../userComponents/loginPage/login-page.component';
 import {UserHttpService} from '../services/user-http.service';
-import {Router} from '@angular/router';
-import {UtilService} from '../services/util.service';
 import {User} from '../model/user';
 import {Subscription} from 'rxjs';
-
+import {Router} from "@angular/router";
+import {ShoppingCartComponent} from "../productComponents/shoppingCart/shopping-cart.component";
+import {MatAccordion} from "@angular/material/expansion";
+import {MessengerService} from "../services/messenger.service";
+import {CartService} from "../services/cart.service";
+import {Product} from "../model/product";
 
 
 @Component({
@@ -23,12 +26,17 @@ export class NavigationComponent implements OnInit{
   @ViewChild('sidenav') sidenav: MatSidenav;
   currentUser: User;
   currentUserSubscription: Subscription;
+  counting: any;
+
+
 
   constructor(public dialog: MatDialog,
               private http: UserHttpService,
-              private router: Router) { }
+              private router: Router,
+              private cartService: CartService,
+              private msg: MessengerService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.userSubs();
   }
 
@@ -36,9 +44,10 @@ export class NavigationComponent implements OnInit{
     this.currentUserSubscription = this.http.currentUser.subscribe(user => {
       this.currentUser = user;
       if(this.currentUser) {
-        this.btn = false;
+        return this.btn = false;
       }
       });
+    return true;
   }
 
   signIn() {
@@ -57,6 +66,5 @@ export class NavigationComponent implements OnInit{
     this.reason = reason;
     this.sidenav.close();
   }
-
 
 }

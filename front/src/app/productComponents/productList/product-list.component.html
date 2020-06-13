@@ -1,5 +1,32 @@
+<mat-card id="mainList">
+  <div id="filters">
+  <div class="searchFilter">
+    <mat-card class="listCard">
+      <h3> Use Global Search: </h3>
+      <mat-form-field class="searchInput" floatLabel='never'>
+        <input
+          matInput
+          [(ngModel)]="searchText"
+          placeholder="Enter Product Name Or Institution Name"
+          autocomplete="off" > <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
+    </mat-card>
+  </div><br/>
 
-<mat-card>
+  <div class="selectFilter">
+    <mat-card class="listCard">
+      <h3> Use Our Filters: </h3>
+      <mat-form-field class="filterInput">
+        <mat-label> Choose Area </mat-label>
+        <mat-select [(ngModel)]="selectedValue" (ngModelChange)="onArea()">
+          <mat-option *ngFor="let area of areas" [value]="area.value">
+            {{area.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-card>
+  </div>
+  </div>
   <div class="products" *ngFor="let product of productList | filter: searchText">
     <app-product-item [productItem]="product"></app-product-item>
   </div>

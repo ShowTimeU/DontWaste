@@ -3,7 +3,7 @@
   <mat-sidenav #sidenav (keydown.escape)="close('escape')" >
     <mat-nav-list>
       <div class="menu">
-        <a [routerLink]="['']"><button (click)="sidenav.close()" mat-icon-button color="primary" class="menuBtn1">
+        <a [routerLink]="['/']"><button (click)="sidenav.close()" mat-icon-button color="primary" class="menuBtn1">
           <mat-icon>home</mat-icon>
         </button></a><br/>
         <a [routerLink]="['registrationPage']"><button mat-stroked-button (click)="sidenav.close()" color="primary" class="menuBtn1">
@@ -19,7 +19,9 @@
 
       <h2 *ngIf="currentUser"> Hello, {{currentUser.name}} </h2>
 
-      <button mat-button color="primary" class="cartBtn" *ngIf="!btn"><mat-icon>shopping_cart</mat-icon></button>
+      <button mat-button color="primary" class="cartBtn" *ngIf="!btn">
+        <mat-icon [matBadge]="counting" matBadgeColor="warn">shopping_cart</mat-icon>
+      </button>
 
       <button mat-raised-button (click)="signIn()" color="primary" class="loginBtn" *ngIf="btn"> Sign In </button>
 

@@ -7,6 +7,8 @@ import { Subject } from "rxjs";
 export class MessengerService {
 
   subject = new Subject();
+  counter = new Subject();
+
 
   constructor() { }
 
@@ -16,6 +18,14 @@ export class MessengerService {
 
   getMsg() {
     return this.subject.asObservable();
+  }
+
+  sendNumber(counter) {
+    return this.counter = counter;
+  }
+
+  getNumber() {
+    return this.counter.asObservable();
   }
 
 }

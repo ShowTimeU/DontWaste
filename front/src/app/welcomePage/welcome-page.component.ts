@@ -17,18 +17,22 @@ export class WelcomePageComponent implements OnInit {
   public products: Product[] = [];
 
   constructor(private productHTTPService: ProductHTTPService,
-              private userHttpService: UserHttpService,
-              private router: Router) {
+              private userHttpService: UserHttpService) {
     this.userHttpService.currentUser.subscribe(x => this.currentUser = x);
-
   }
 
   ngOnInit() {
+    this.placeCss();
     this.getAllProducts();
   }
 
   getAllProducts() {
     return this.productHTTPService.getAllProducts().subscribe(data => this.products = data);
+  }
+
+  placeCss() {
+    document.getElementById("filters").hidden = true;
+    document.getElementById('mainList').style.backgroundColor = '#e6f5f2';
   }
 
 }

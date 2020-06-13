@@ -1,8 +1,11 @@
+<router-outlet></router-outlet>
 <div class="wraperZhe">
 
   <h1> Hot Dishes </h1>
 
-  <product-list class="productList"></product-list>
+  <div class="productList">
+    <product-list></product-list>
+  </div>
 
   <a [routerLink]="['mainProductPage']"><button mat-raised-button color="primary" class="btn"> Check All Dishes... </button></a>
 </div>
