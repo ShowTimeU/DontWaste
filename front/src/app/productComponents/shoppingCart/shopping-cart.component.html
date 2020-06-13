@@ -1,7 +1,10 @@
 <mat-card>
-  <h1 *ngIf="cartItems.length === 0"> Your Cart Is Empty </h1>
 
-  <div *ngIf="cartItems.length > 0"> <h1>Your Chosen Products</h1>
+  <ng-template #empty>
+    <h1> Your Cart Is Empty </h1>
+  </ng-template>
+
+  <div *ngIf="cartItems.length > 0; else empty"> <h1>Your Chosen Products</h1>
     <app-cart-item *ngFor="let item of cartItems"
                    [cartItem] = "item"
                    (productRemoved)="removeProduct($event)">
@@ -11,7 +14,6 @@
   <div class="totalPrice" *ngIf="cartItems.length">
     <button mat-raised-button color="accent" role="button" *ngIf="cartItems.length" [disabled]="cartItems.length < 1" (click)="checkout()">
       <mat-icon>shopping_cart</mat-icon> Checkout {{ calcTotal() }} Item{{ cartItems.length > 1 ? 's' : '' }}</button><br/>
-
     <h2 class="totalPrice"> Total: {{calcTotalPrice()}} </h2>
   </div>
 

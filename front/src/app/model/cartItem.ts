@@ -15,6 +15,7 @@ export class CartItem {
     this.quantity = quantity;
     this.price = product.price;
   }
+
 }
 
 

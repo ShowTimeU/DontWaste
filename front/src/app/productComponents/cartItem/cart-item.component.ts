@@ -1,5 +1,8 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Product} from "../../model/product";
+import {User} from "../../model/user";
+import {Subscription} from "rxjs";
+import {UserHttpService} from "../../services/user-http.service";
 
 @Component({
   selector: 'app-cart-item',
@@ -15,7 +18,6 @@ export class CartItemComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-
   }
 
   onClick() {
@@ -28,5 +30,4 @@ export class CartItemComponent implements OnInit {
     }
     return this.cartItem.price * this.cartItem.quantity;
   }
-
 }

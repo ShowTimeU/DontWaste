@@ -49,7 +49,6 @@ export class NavigationComponent implements OnInit{
 
   logOut() {
     this.http.logout();
-    this.router.navigate(['/']);
     window.location.reload();
     this.btn = true;
   }

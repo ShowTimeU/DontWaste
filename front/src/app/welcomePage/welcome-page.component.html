@@ -1,26 +1,8 @@
 <div class="wraperZhe">
 
   <h1> Hot Dishes </h1>
-  <div class="container">
-    <mat-card class="card" *ngFor="let product of products">
 
-      <mat-card-header>
-        <div mat-card-avatar class="header-image"></div>
-        <mat-card-title> {{product.productName}} </mat-card-title>
-        <mat-card-subtitle> From <b>{{product.institution}}</b> </mat-card-subtitle>
-      </mat-card-header>
+  <product-list class="productList"></product-list>
 
-      <img class="productImg" mat-card-image [src]="product.image" alt="Product image">
-
-      <mat-card-content class="price">
-        <div class="newPrice"><b>  {{product.price}}₪ </b></div>
-        <div class="oldPrice"> {{product.startingPrice}}₪ </div>
-      </mat-card-content>
-
-      <mat-card-actions>
-        <button mat-raised-button> <mat-icon>add_shopping_cart</mat-icon> Add To Cart </button>
-      </mat-card-actions>
-    </mat-card>
-  </div>
   <a [routerLink]="['mainProductPage']"><button mat-raised-button color="primary" class="btn"> Check All Dishes... </button></a>
 </div>

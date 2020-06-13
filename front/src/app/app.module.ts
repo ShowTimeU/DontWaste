@@ -45,6 +45,8 @@ import {PathResolveService} from "./services/path-resolve.service";
 import { FilterPipe } from './filter.pipe';
 import {ProductItemComponent} from "./productComponents/productItem/product-item.component";
 import {CartItemComponent} from "./productComponents/cartItem/cart-item.component";
+import {ShoppingCartModule} from "ng-shopping-cart";
+import { FiltersComponent } from './productComponents/filters/filters.component';
 
 
 const routes = [{path: 'registrationPage', component: RegistrationPageComponent},
@@ -73,7 +75,8 @@ const routes = [{path: 'registrationPage', component: RegistrationPageComponent}
         FilterPipe,
         ProductItemComponent,
         ProductItemComponent,
-        CartItemComponent
+        CartItemComponent,
+        FiltersComponent
     ],
   imports: [
     BrowserModule,
@@ -99,7 +102,8 @@ const routes = [{path: 'registrationPage', component: RegistrationPageComponent}
     MatTableModule,
     MatProgressBarModule,
     MatSnackBarModule,
-    MatTooltipModule
+    MatTooltipModule,
+    ShoppingCartModule
   ],
   providers: [AlertService,
     ProductHTTPService,

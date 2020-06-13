@@ -4,6 +4,7 @@ import {ProductRegistrationComponent} from "../productRegistration/product-regis
 import {CartService} from "../../services/cart.service";
 import {User} from "../../model/user";
 import {UserHttpService} from "../../services/user-http.service";
+import {Subscription} from "rxjs";
 
 
 @Component({
@@ -14,7 +15,6 @@ import {UserHttpService} from "../../services/user-http.service";
 export class MainProductPageComponent implements OnInit{
 
   cartProductList = [];
-  user: User;
 
   constructor(public dialog: MatDialog,
               private cartService: CartService,
@@ -22,9 +22,6 @@ export class MainProductPageComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.http.currentUser.subscribe( user => {
-        this.user = user;
-      })
   }
 
   removeProduct(product) {

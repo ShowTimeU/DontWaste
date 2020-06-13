@@ -8,6 +8,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {first} from "rxjs/operators";
 import {NavigationComponent} from "../../navigation/navigation.component";
 import {Button} from "@material-ui/core";
+import {CartService} from "../../services/cart.service";
 
 
 @Component({
@@ -37,7 +38,8 @@ export class LoginPageComponent implements OnInit {
               private http: UserHttpService,
               private util: UtilService,
               private router: Router,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              private cartService: CartService) {
 
     if (this.http.currentUserValue) {
       this.router.navigate(['/']);
@@ -54,7 +56,6 @@ export class LoginPageComponent implements OnInit {
     } else {
       this.http.getUserByEmail(this.emailFC.value, this.passwordFC.value).pipe(
         first()).subscribe(data => {
-          this.router.navigate(['/']);
           this.dialog.closeAll();
           window.location.reload();
         },

@@ -5,6 +5,9 @@ import {CheckoutDialogComponent} from "../checkoutDialog/checkout-dialog.compone
 import {MatDialog} from "@angular/material/dialog";
 import {CartService} from "../../services/cart.service";
 import {CartItem} from "../../model/cartItem";
+import {User} from "../../model/user";
+import {Observable, Subscription} from "rxjs";
+import {UserHttpService} from "../../services/user-http.service";
 
 @Component({
   selector: 'shopping-cart',
@@ -18,11 +21,14 @@ export class ShoppingCartComponent implements OnInit{
 
   constructor(private msg: MessengerService,
               private dialog: MatDialog,
-              private cartService: CartService) { }
+              private cartService: CartService,
+              private http: UserHttpService) { }
 
   ngOnInit() {
-      this.handleSubscription();
+    if(this.http.currentUserValue) {
       this.loadCartItems();
+      this.handleSubscription();
+    }
   }
 
   handleSubscription() {
