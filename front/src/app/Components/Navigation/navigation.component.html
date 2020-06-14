@@ -1,0 +1,35 @@
+<mat-sidenav-container class="example-container" (backdropClick)="close('backdrop')">
+
+  <mat-sidenav #sidenav (keydown.escape)="close('escape')" >
+    <mat-nav-list>
+      <div class="menu">
+        <a [routerLink]="['/']"><button (click)="sidenav.close()" mat-icon-button color="primary" class="menuBtn1">
+          <mat-icon>home</mat-icon>
+        </button></a><br/>
+        <a [routerLink]="['registrationPage']"><button mat-stroked-button (click)="sidenav.close()" color="primary" class="menuBtn1">
+          Sign Up </button></a><br/>
+        <a [routerLink]="['mainProductPage']"><button mat-stroked-button (click)="sidenav.close()" color="primary" class="menuBtn1">
+          Food List </button></a><br/><br/>
+      </div>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar class="example-toolbar">
+
+      <h2 *ngIf="currentUser"> Hello, {{currentUser.name}} </h2>
+
+      <button (click)="openCart()" mat-button color="primary" class="cartBtn">
+        <mat-icon [matBadge]="counter" [matBadgeHidden]="counter < 1" matBadgeColor="accent">shopping_cart</mat-icon>
+      </button>
+
+      <button mat-raised-button (click)="signIn()" color="primary" class="loginBtn" *ngIf="btn"> Sign In </button>
+
+      <button mat-raised-button (click)="logOut()" color="primary" class="loginBtn" *ngIf="!btn"> Log Out </button>
+
+      <button mat-icon-button (click)="sidenav.open()" class="hamBtn" ><mat-icon>menu</mat-icon></button>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>

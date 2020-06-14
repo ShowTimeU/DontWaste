@@ -1,0 +1,21 @@
+<button mat-raised-button (click)="openDialog()" color="primary" class="menuBtn"> Add New Product </button>
+
+<div class="container">
+  <app-product-list class="productList"></app-product-list>
+  <mat-card class="shoppingCart">
+    <mat-card-content>
+      <app-shopping-cart [cartItems]="cartProductList" (productRemoved)="removeProduct($event)"></app-shopping-cart>
+    </mat-card-content>
+  </mat-card>
+
+</div>
+
+
+
+
+
+
+
+
+
+

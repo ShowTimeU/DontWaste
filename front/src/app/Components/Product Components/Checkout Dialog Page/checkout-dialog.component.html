@@ -1,0 +1,33 @@
+<h1>
+  Checkout
+  <button style="float: right;" mat-icon-button [mat-dialog-close]><mat-icon>cancel</mat-icon></button>
+</h1><br/>
+<h2>
+  Review your items and checkout
+</h2>
+
+<mat-card>
+<table *ngIf="data">
+  <td>
+    <tr> <b>Name:</b> </tr>
+    <tr *ngFor="let i of objectKeys(data.productName)"><br/> {{data.productName[i]}}</tr>
+  </td>
+  <td>
+    <tr> <b>Price:</b> </tr>
+    <tr *ngFor="let i of objectKeys(data.price)"><br/> {{data.price[i] | currency: 'ILS'}}</tr>
+  </td>
+  <td>
+    <tr> <b>Quantity:</b> </tr>
+    <tr *ngFor="let i of objectKeys(data.quantity)"><br/> {{data.quantity[i]}}</tr>
+  </td>
+</table>
+</mat-card><br/>
+
+<mat-card class="proceed">
+    <mat-card-title> Total: {{data.totalPrice | currency: 'ILS'}}</mat-card-title><br/>
+  <mat-card-actions>
+    <button type="button" mat-raised-button color="accent" (click)="onClick()" [disabled]="res == true"> Complete my order
+      <mat-icon>check</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card><br/>
