@@ -14,9 +14,11 @@ export class CartService {
 
   constructor(private httpClient: HttpClient) { }
 
+  url = 'http://localhost:3000/cartList';
+
   getCartItems(): Observable<CartItem[]> {
 
-    return this.httpClient.get<CartItem[]>('http://localhost:3000/cartList').pipe(
+    return this.httpClient.get<CartItem[]>(this.url).pipe(
       map((res:any[]) => {
         let cartItems: CartItem[] = [];
 
@@ -40,15 +42,21 @@ export class CartService {
   }
 
   addProductToCart(product: Product): Observable<any> {
-    return this.httpClient.post<any>('http://localhost:3000/cartList', {product});
+    return this.httpClient.post<any>(this.url, {product});
   }
 
   removeProductsFromCart(product: Product) {
-    return this.httpClient.delete('http://localhost:3000/cartList'+ '/' + product.id);
+    return this.httpClient.delete(this.url+ '/' + product.id);
   }
 
   removeAllProductsFromCart() {
-    return this.httpClient.delete('http://localhost:3000/cartList');
+    return this.httpClient.get<CartItem[]>(this.url).subscribe(data => {
+     while(data.length != 0) {
+       console.log(data);
+       data.shift();
+     }
+      return data;
+    });
   }
 
 
