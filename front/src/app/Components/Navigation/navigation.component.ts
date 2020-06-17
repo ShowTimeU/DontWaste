@@ -31,11 +31,14 @@ export class NavigationComponent implements OnInit{
               private http: UserHttpService,
               private router: Router,
               private cartService: CartService,
-              private msg: MessengerService) { }
+              private msg: MessengerService) {
+    this.counterSubscription = this.msg.getNumber().subscribe(data => {
+    this.counter = data.counter;
+    });
+  }
 
   ngOnInit() {
     this.userSubs();
-    this.cartSubs();
   }
 
   userSubs() {
@@ -48,13 +51,6 @@ export class NavigationComponent implements OnInit{
     return true;
   }
 
-  cartSubs() {
-    this.counterSubscription = this.msg.getNumber().subscribe(data => {
-      this.counter = data.counter;
-      localStorage.setItem('data', this.counter);
-    });
-  }
-
   signIn() {
     this.dialog.open(LoginPageComponent, {
       width: '400px'
@@ -64,6 +60,7 @@ export class NavigationComponent implements OnInit{
   logOut() {
     this.http.logout();
     this.btn = true;
+    window.location.reload();
   }
 
   close(reason: string) {

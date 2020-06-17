@@ -13,19 +13,23 @@ import {UserHttpService} from "../../../Services/user-http.service";
 export class ProductItemComponent implements OnInit {
 
   @Input() productItem: Product;
+  count = 0;
 
   constructor(private productHTTPService: ProductHTTPService,
               private msg: MessengerService,
               private cartService: CartService,
-              private userHttpService: UserHttpService) { }
+              private userHttpService: UserHttpService) {
+  }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
   handleAddToCart() {
-    this.cartService.addProductToCart(this.productItem).subscribe(() => {
-      this.msg.sendMsg(this.productItem);
+    if(this.userHttpService.currentUserValue) {
+      this.cartService.addProductToCart(this.productItem).subscribe(() => {
+        this.msg.sendMsg(this.productItem);
       })
+    }
   }
 
 }

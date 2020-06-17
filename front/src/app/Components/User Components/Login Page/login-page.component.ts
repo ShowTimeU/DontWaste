@@ -57,6 +57,7 @@ export class LoginPageComponent implements OnInit {
       this.http.getUserByEmail(this.emailFC.value, this.passwordFC.value).pipe(
         first()).subscribe(data => {
           this.dialog.closeAll();
+          window.location.reload();
         },
         error => {
           error = this.util.snack('Wrong Login Or Password!');

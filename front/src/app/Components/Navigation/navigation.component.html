@@ -19,7 +19,7 @@
 
       <h2 *ngIf="currentUser"> Hello, {{currentUser.name}} </h2>
 
-      <button (click)="openCart()" mat-button color="primary" class="cartBtn">
+      <button (click)="openCart()" mat-button color="primary" class="cartBtn" *ngIf="currentUser">
         <mat-icon [matBadge]="counter" [matBadgeHidden]="counter < 1" matBadgeColor="accent">shopping_cart</mat-icon>
       </button>
 

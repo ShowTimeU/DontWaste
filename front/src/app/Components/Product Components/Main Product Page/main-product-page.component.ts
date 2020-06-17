@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
 import {ProductRegistrationComponent} from "../Product Registration Page/product-registration.component";
 import {CartService} from "../../../Services/cart.service";
+import {UserHttpService} from "../../../Services/user-http.service";
 
 @Component({
   selector: 'app-main-product-page',
@@ -13,10 +14,11 @@ export class MainProductPageComponent implements OnInit{
   cartProductList = [];
 
   constructor(public dialog: MatDialog,
-              private cartService: CartService) {
+              private cartService: CartService,
+              private http: UserHttpService) {
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
   removeProduct(product) {

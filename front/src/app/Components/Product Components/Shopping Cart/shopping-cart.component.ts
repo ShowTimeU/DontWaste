@@ -21,19 +21,21 @@ export class ShoppingCartComponent implements OnInit{
   constructor(private msg: MessengerService,
               private dialog: MatDialog,
               private cartService: CartService,
-              private http: UserHttpService) {}
+              private http: UserHttpService) {
+  }
 
   ngOnInit() {
-    this.loadCartItems();
     this.handleSubscription();
-
+    this.loadCartItems();
   }
 
   loadCartItems() {
-    this.cartService.getCartItems().subscribe( (items: CartItem[]) => {
-      this.cartItems = items;
-      this.calcTotalPrice();
-    })
+    if(this.http.currentUserValue) {
+      this.cartService.getCartItems().subscribe( (items: CartItem[]) => {
+        this.cartItems = items;
+        this.calcTotalPrice();
+      })
+    }
   }
 
   removeProduct(product) {
